@@ -1,3 +1,4 @@
+# Build output
 .gradle/
 build/
 out/
@@ -5,8 +6,16 @@ bin/
 *.class
 *.jar
 !gradle/wrapper/gradle-wrapper.jar
+
+# IDE
 .idea/
 *.iml
 *.ipr
 *.iws
+
+# OS
 .DS_Store
+Thumbs.db
+
+# Files Claude delivers into the working folder; not part of the plugin
+Claude outputs/
