@@ -8,8 +8,10 @@ package com.pohtemplates.model;
 /**
  * The three levels a player-owned house can occupy.
  * <p>
- * The ordinal of each value is <b>not</b> significant; {@link #getPlane()} is the plane the level
- * occupies inside the house instance and is the value that matches {@code WorldView#getPlane()}.
+ * {@link #getPlane()} is how a plan records the floor, and is part of the share-code format. It is
+ * <b>not</b> the plane the floor occupies in the loaded scene: the house scene puts its ground floor
+ * at plane 0, and the dungeon is a separate scene that also starts at plane 0.
+ * {@code HouseScanner} works out which scene plane is which floor from the rooms standing on it.
  */
 public enum HouseFloor
 {

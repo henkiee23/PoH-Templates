@@ -8,6 +8,8 @@ package com.pohtemplates.game;
 import com.pohtemplates.data.ObjectRef;
 import com.pohtemplates.data.PohData;
 import com.pohtemplates.data.PohDataService;
+import com.pohtemplates.data.RoomDef;
+import com.pohtemplates.model.HouseFloor;
 import com.pohtemplates.model.HouseTemplate;
 import com.pohtemplates.model.PlannedRoom;
 import java.util.ArrayList;
@@ -25,6 +27,8 @@ import net.runelite.api.Tile;
 import net.runelite.api.TileObject;
 import net.runelite.api.WorldView;
 import net.runelite.api.gameval.VarbitID;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Keeps a live picture of the house the player is standing in.
@@ -36,6 +40,8 @@ import net.runelite.api.gameval.VarbitID;
 @Singleton
 public class HouseScanner
 {
+	private static final Logger log = LoggerFactory.getLogger(HouseScanner.class);
+
 	/** A house grid is 13x13 rooms, which is exactly the 104x104 scene divided into 8x8 chunks. */
 	private static final int GRID = HouseTemplate.GRID_SIZE;
 
@@ -44,6 +50,14 @@ public class HouseScanner
 
 	private final Map<Integer, DetectedRoom> rooms = new HashMap<>();
 	private final Map<Long, Integer> objectCells = new HashMap<>();
+
+	/**
+	 * Which floor each plane of the loaded scene is. Worked out from the rooms actually standing
+	 * there rather than assumed, because the plane a floor occupies is not fixed: the house scene
+	 * puts the ground floor at plane 0, and the dungeon is its own scene that also starts at 0.
+	 */
+	private final Map<Integer, Integer> floorByScenePlane = new HashMap<>();
+	private boolean floorsStale = true;
 
 	@Inject
 	public HouseScanner(Client client, PohDataService dataService)
@@ -74,16 +88,128 @@ public class HouseScanner
 		return rooms.values();
 	}
 
+	/**
+	 * @param floor a floor as a plan records it, i.e. {@link HouseFloor#getPlane()}, not a plane of
+	 *              the loaded scene
+	 */
 	@Nullable
-	public DetectedRoom getRoom(int plane, int x, int y)
+	public DetectedRoom getRoom(int floor, int x, int y)
 	{
-		return rooms.get(key(plane, x, y));
+		Integer scenePlane = scenePlaneFor(floor);
+		return scenePlane == null ? null : rooms.get(key(scenePlane, x, y));
+	}
+
+	/**
+	 * @return the plane of the loaded scene holding the given floor, or {@code null} if that floor
+	 * is not part of the scene the player is standing in
+	 */
+	@Nullable
+	private Integer scenePlaneFor(int floor)
+	{
+		resolveFloors();
+		for (Map.Entry<Integer, Integer> entry : floorByScenePlane.entrySet())
+		{
+			if (entry.getValue() == floor)
+			{
+				return entry.getKey();
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * @return the floor the given scene plane holds, as a plan records it
+	 */
+	private int floorFor(int scenePlane)
+	{
+		resolveFloors();
+		Integer floor = floorByScenePlane.get(scenePlane);
+		return floor == null ? scenePlane : floor;
+	}
+
+	/**
+	 * Works out which floor each plane of the loaded scene is.
+	 * <p>
+	 * The plane a floor sits on is not fixed, so it is deduced from what is standing there: a
+	 * garden can only be outdoors and so marks the ground floor, and an oubliette or dungeon room
+	 * can only be in the basement. Anything left over is placed relative to whichever of those was
+	 * found. If nothing identifiable is loaded, the lowest plane present is taken as the ground
+	 * floor, which is what the house scene does.
+	 */
+	private void resolveFloors()
+	{
+		if (!floorsStale)
+		{
+			return;
+		}
+		floorsStale = false;
+		floorByScenePlane.clear();
+
+		Integer groundPlane = null;
+		Integer dungeonPlane = null;
+		java.util.TreeSet<Integer> planes = new java.util.TreeSet<>();
+
+		for (DetectedRoom room : rooms.values())
+		{
+			planes.add(room.getPlane());
+
+			RoomDef def = room.getRoom();
+			if (def == null)
+			{
+				continue;
+			}
+			if (isOnlyOn(def, HouseFloor.DUNGEON.getPlane()))
+			{
+				dungeonPlane = room.getPlane();
+			}
+			else if (isOnlyOn(def, HouseFloor.GROUND.getPlane()))
+			{
+				groundPlane = room.getPlane();
+			}
+		}
+
+		if (groundPlane == null && dungeonPlane == null && !planes.isEmpty())
+		{
+			// Nothing gave the game away, so assume the lowest loaded plane is the ground floor.
+			groundPlane = planes.first();
+		}
+
+		for (Integer plane : planes)
+		{
+			if (dungeonPlane != null && plane.equals(dungeonPlane))
+			{
+				floorByScenePlane.put(plane, HouseFloor.DUNGEON.getPlane());
+			}
+			else if (groundPlane != null)
+			{
+				int delta = plane - groundPlane;
+				floorByScenePlane.put(plane, delta <= 0
+					? (delta == 0 ? HouseFloor.GROUND.getPlane() : HouseFloor.DUNGEON.getPlane())
+					: HouseFloor.UPPER.getPlane());
+			}
+			else
+			{
+				// Only the dungeon is loaded; anything above it is the ground floor.
+				floorByScenePlane.put(plane, plane.equals(dungeonPlane)
+					? HouseFloor.DUNGEON.getPlane()
+					: HouseFloor.GROUND.getPlane());
+			}
+		}
+
+		log.debug("POH floors resolved: {}", floorByScenePlane);
+	}
+
+	private static boolean isOnlyOn(RoomDef def, int floor)
+	{
+		return def.getPlanes().size() == 1 && def.getPlanes().get(0) == floor;
 	}
 
 	public void clear()
 	{
 		rooms.clear();
 		objectCells.clear();
+		floorByScenePlane.clear();
+		floorsStale = true;
 	}
 
 	public void onObjectSpawned(Tile tile, TileObject object)
@@ -109,6 +235,7 @@ public class HouseScanner
 		room.setRotation(readRotation(plane, gridX, gridY));
 		room.add(object, refs);
 		objectCells.put(object.getHash(), cell);
+		floorsStale = true;
 	}
 
 	public void onObjectDespawned(TileObject object)
@@ -128,6 +255,7 @@ public class HouseScanner
 		{
 			rooms.remove(cell);
 		}
+		floorsStale = true;
 	}
 
 	/**
@@ -173,7 +301,7 @@ public class HouseScanner
 			}
 
 			PlannedRoom planned = new PlannedRoom(
-				detected.getPlane(),
+				floorFor(detected.getPlane()),
 				detected.getX(),
 				detected.getY(),
 				detected.getRoom().getId(),
