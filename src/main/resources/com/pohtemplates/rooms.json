@@ -1,0 +1,4096 @@
+{
+ "format": 1,
+ "styles": [
+  {
+   "id": "basic_wood",
+   "name": "Basic wood",
+   "level": 1,
+   "cost": 5000
+  },
+  {
+   "id": "basic_stone",
+   "name": "Basic stone",
+   "level": 10,
+   "cost": 5000
+  },
+  {
+   "id": "whitewashed_stone",
+   "name": "Whitewashed stone",
+   "level": 20,
+   "cost": 7500
+  },
+  {
+   "id": "fremennik_wood",
+   "name": "Fremennik-style wood",
+   "level": 30,
+   "cost": 10000
+  },
+  {
+   "id": "tropical_wood",
+   "name": "Tropical wood",
+   "level": 40,
+   "cost": 15000
+  },
+  {
+   "id": "fancy_stone",
+   "name": "Fancy stone",
+   "level": 50,
+   "cost": 25000
+  },
+  {
+   "id": "deathly_mansion",
+   "name": "Deathly mansion",
+   "level": 60,
+   "cost": 100000,
+   "note": "Unlocked by the Daddy's Home miniquest"
+  },
+  {
+   "id": "twisted",
+   "name": "Twisted",
+   "level": 1,
+   "cost": 0,
+   "note": "Cosmetic override, unlocked from a league"
+  },
+  {
+   "id": "hosidius",
+   "name": "Hosidius",
+   "level": 1,
+   "cost": 0,
+   "note": "Cosmetic override"
+  }
+ ],
+ "rooms": [
+  {
+   "id": "garden",
+   "name": "Garden",
+   "level": 1,
+   "cost": 1000,
+   "planes": [
+    1
+   ],
+   "colour": "#4C7A3F",
+   "hotspots": [
+    {
+     "id": "centrepiece",
+     "name": "Centrepiece space",
+     "objectIds": [
+      15361
+     ],
+     "options": [
+      {
+       "id": "exit_portal",
+       "name": "Exit portal",
+       "level": 1,
+       "xp": 100,
+       "materials": [
+        {
+         "itemId": 2351,
+         "quantity": 10
+        }
+       ],
+       "note": "Every house needs one exit portal, in a garden or formal garden"
+      },
+      {
+       "id": "decorative_rock",
+       "name": "Decorative rock",
+       "level": 5,
+       "xp": 100,
+       "materials": [
+        {
+         "itemId": 3420,
+         "quantity": 5
+        }
+       ]
+      },
+      {
+       "id": "pond",
+       "name": "Pond",
+       "level": 10,
+       "xp": 100,
+       "materials": [
+        {
+         "itemId": 1761,
+         "quantity": 10
+        }
+       ]
+      },
+      {
+       "id": "imp_statue",
+       "name": "Imp statue",
+       "level": 15,
+       "xp": 150,
+       "materials": [
+        {
+         "itemId": 3420,
+         "quantity": 5
+        },
+        {
+         "itemId": 1761,
+         "quantity": 5
+        }
+       ]
+      },
+      {
+       "id": "dungeon_entrance",
+       "name": "Dungeon entrance",
+       "level": 70,
+       "xp": 500,
+       "materials": [
+        {
+         "itemId": 8786,
+         "quantity": 1
+        }
+       ],
+       "note": "Needed to reach the dungeon floor"
+      }
+     ]
+    },
+    {
+     "id": "big_tree",
+     "name": "Big tree space",
+     "objectIds": [
+      15362
+     ],
+     "options": [
+      {
+       "id": "tree",
+       "name": "Tree",
+       "level": 5,
+       "xp": 31,
+       "materials": [
+        {
+         "itemId": 8417,
+         "quantity": 1
+        }
+       ],
+       "note": "Needs a filled watering can. The crystal saw boost does not work here"
+      },
+      {
+       "id": "nice_tree",
+       "name": "Nice tree",
+       "level": 10,
+       "xp": 44,
+       "materials": [
+        {
+         "itemId": 8419,
+         "quantity": 1
+        }
+       ]
+      },
+      {
+       "id": "oak_tree",
+       "name": "Oak tree",
+       "level": 15,
+       "xp": 70,
+       "materials": [
+        {
+         "itemId": 8421,
+         "quantity": 1
+        }
+       ]
+      },
+      {
+       "id": "willow_tree",
+       "name": "Willow tree",
+       "level": 30,
+       "xp": 100,
+       "materials": [
+        {
+         "itemId": 8423,
+         "quantity": 1
+        }
+       ]
+      },
+      {
+       "id": "maple_tree",
+       "name": "Maple tree",
+       "level": 45,
+       "xp": 122,
+       "materials": [
+        {
+         "itemId": 8425,
+         "quantity": 1
+        }
+       ]
+      },
+      {
+       "id": "yew_tree",
+       "name": "Yew tree",
+       "level": 60,
+       "xp": 141,
+       "materials": [
+        {
+         "itemId": 8427,
+         "quantity": 1
+        }
+       ]
+      },
+      {
+       "id": "magic_tree",
+       "name": "Magic tree",
+       "level": 75,
+       "xp": 223,
+       "materials": [
+        {
+         "itemId": 8429,
+         "quantity": 1
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "tree",
+     "name": "Tree space",
+     "objectIds": [
+      15363
+     ],
+     "options": [
+      {
+       "id": "tree",
+       "name": "Tree",
+       "level": 5,
+       "xp": 31,
+       "materials": [
+        {
+         "itemId": 8417,
+         "quantity": 1
+        }
+       ],
+       "note": "Needs a filled watering can. The crystal saw boost does not work here"
+      },
+      {
+       "id": "nice_tree",
+       "name": "Nice tree",
+       "level": 10,
+       "xp": 44,
+       "materials": [
+        {
+         "itemId": 8419,
+         "quantity": 1
+        }
+       ]
+      },
+      {
+       "id": "oak_tree",
+       "name": "Oak tree",
+       "level": 15,
+       "xp": 70,
+       "materials": [
+        {
+         "itemId": 8421,
+         "quantity": 1
+        }
+       ]
+      },
+      {
+       "id": "willow_tree",
+       "name": "Willow tree",
+       "level": 30,
+       "xp": 100,
+       "materials": [
+        {
+         "itemId": 8423,
+         "quantity": 1
+        }
+       ]
+      },
+      {
+       "id": "maple_tree",
+       "name": "Maple tree",
+       "level": 45,
+       "xp": 122,
+       "materials": [
+        {
+         "itemId": 8425,
+         "quantity": 1
+        }
+       ]
+      },
+      {
+       "id": "yew_tree",
+       "name": "Yew tree",
+       "level": 60,
+       "xp": 141,
+       "materials": [
+        {
+         "itemId": 8427,
+         "quantity": 1
+        }
+       ]
+      },
+      {
+       "id": "magic_tree",
+       "name": "Magic tree",
+       "level": 75,
+       "xp": 223,
+       "materials": [
+        {
+         "itemId": 8429,
+         "quantity": 1
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "big_plant_1",
+     "name": "Big plant space 1",
+     "objectIds": [
+      15364
+     ],
+     "options": [
+      {
+       "id": "fern",
+       "name": "Fern",
+       "level": 1,
+       "xp": 31,
+       "materials": [
+        {
+         "itemId": 8431,
+         "quantity": 1
+        }
+       ],
+       "objectIds": [
+        5128
+       ],
+       "note": "Needs a filled watering can"
+      },
+      {
+       "id": "bush",
+       "name": "Bush",
+       "level": 6,
+       "xp": 70,
+       "materials": [
+        {
+         "itemId": 8433,
+         "quantity": 1
+        }
+       ],
+       "objectIds": [
+        5129
+       ],
+       "note": "Needs a filled watering can"
+      },
+      {
+       "id": "tall_plant",
+       "name": "Tall plant",
+       "level": 12,
+       "xp": 100,
+       "materials": [
+        {
+         "itemId": 8435,
+         "quantity": 1
+        }
+       ],
+       "objectIds": [
+        5130
+       ],
+       "note": "Needs a filled watering can"
+      }
+     ]
+    },
+    {
+     "id": "big_plant_2",
+     "name": "Big plant space 2",
+     "objectIds": [
+      15365
+     ],
+     "options": [
+      {
+       "id": "short_plant",
+       "name": "Short plant",
+       "level": 1,
+       "xp": 31,
+       "materials": [
+        {
+         "itemId": 8431,
+         "quantity": 1
+        }
+       ],
+       "objectIds": [
+        5131
+       ],
+       "note": "Needs a filled watering can"
+      },
+      {
+       "id": "large_leaf_bush",
+       "name": "Large leaf bush",
+       "level": 6,
+       "xp": 70,
+       "materials": [
+        {
+         "itemId": 8433,
+         "quantity": 1
+        }
+       ],
+       "objectIds": [
+        5132
+       ],
+       "note": "Needs a filled watering can"
+      },
+      {
+       "id": "huge_plant",
+       "name": "Huge plant",
+       "level": 12,
+       "xp": 100,
+       "materials": [
+        {
+         "itemId": 8435,
+         "quantity": 1
+        }
+       ],
+       "objectIds": [
+        5133
+       ],
+       "note": "Needs a filled watering can"
+      }
+     ]
+    },
+    {
+     "id": "small_plant_1",
+     "name": "Small plant space 1",
+     "objectIds": [
+      15366
+     ],
+     "options": [
+      {
+       "id": "plant",
+       "name": "Plant",
+       "level": 1,
+       "xp": 31,
+       "materials": [
+        {
+         "itemId": 8431,
+         "quantity": 1
+        }
+       ],
+       "objectIds": [
+        5134
+       ],
+       "note": "Needs a filled watering can"
+      },
+      {
+       "id": "small_fern",
+       "name": "Small fern",
+       "level": 6,
+       "xp": 70,
+       "materials": [
+        {
+         "itemId": 8433,
+         "quantity": 1
+        }
+       ],
+       "objectIds": [
+        5135
+       ],
+       "note": "Needs a filled watering can"
+      },
+      {
+       "id": "fern_small",
+       "name": "Fern",
+       "level": 12,
+       "xp": 100,
+       "materials": [
+        {
+         "itemId": 8435,
+         "quantity": 1
+        }
+       ],
+       "objectIds": [
+        5136
+       ],
+       "note": "Needs a filled watering can"
+      }
+     ]
+    },
+    {
+     "id": "small_plant_2",
+     "name": "Small plant space 2",
+     "objectIds": [
+      15367
+     ],
+     "options": [
+      {
+       "id": "dock_leaf",
+       "name": "Dock leaf",
+       "level": 1,
+       "xp": 31,
+       "materials": [
+        {
+         "itemId": 8431,
+         "quantity": 1
+        }
+       ],
+       "objectIds": [
+        5137
+       ],
+       "note": "Needs a filled watering can"
+      },
+      {
+       "id": "thistle",
+       "name": "Thistle",
+       "level": 6,
+       "xp": 70,
+       "materials": [
+        {
+         "itemId": 8433,
+         "quantity": 1
+        }
+       ],
+       "objectIds": [
+        5138
+       ],
+       "note": "Needs a filled watering can"
+      },
+      {
+       "id": "reeds",
+       "name": "Reeds",
+       "level": 12,
+       "xp": 100,
+       "materials": [
+        {
+         "itemId": 8435,
+         "quantity": 1
+        }
+       ],
+       "objectIds": [
+        5139
+       ],
+       "note": "Needs a filled watering can"
+      }
+     ]
+    },
+    {
+     "id": "tip_jar",
+     "name": "Tip jar space",
+     "objectIds": [
+      29119
+     ],
+     "options": [
+      {
+       "id": "tip_jar",
+       "name": "Tip jar",
+       "level": 40,
+       "xp": 651,
+       "materials": [
+        {
+         "itemId": 8782,
+         "quantity": 2
+        },
+        {
+         "itemId": 1775,
+         "quantity": 1
+        },
+        {
+         "itemId": 8784,
+         "quantity": 1
+        },
+        {
+         "itemId": 13204,
+         "quantity": 5
+        }
+       ],
+       "objectIds": [
+        29146
+       ]
+      }
+     ]
+    }
+   ],
+   "note": "Every house needs at least one garden or formal garden, for the exit portal"
+  },
+  {
+   "id": "parlour",
+   "name": "Parlour",
+   "level": 1,
+   "cost": 1000,
+   "planes": [
+    1,
+    2
+   ],
+   "colour": "#8B6F47",
+   "hotspots": [
+    {
+     "id": "chair_1",
+     "name": "Chair space 1",
+     "objectIds": [
+      4515
+     ],
+     "options": [
+      {
+       "id": "crude_wooden_chair",
+       "name": "Crude wooden chair",
+       "level": 1,
+       "xp": 58,
+       "materials": [
+        {
+         "itemId": 960,
+         "quantity": 2
+        },
+        {
+         "itemId": 1539,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        6752
+       ]
+      },
+      {
+       "id": "wooden_chair",
+       "name": "Wooden chair",
+       "level": 8,
+       "xp": 87,
+       "materials": [
+        {
+         "itemId": 960,
+         "quantity": 3
+        },
+        {
+         "itemId": 1539,
+         "quantity": 3
+        }
+       ],
+       "objectIds": [
+        6753
+       ]
+      },
+      {
+       "id": "rocking_chair",
+       "name": "Rocking chair",
+       "level": 14,
+       "xp": 87,
+       "materials": [
+        {
+         "itemId": 960,
+         "quantity": 3
+        },
+        {
+         "itemId": 1539,
+         "quantity": 3
+        }
+       ],
+       "objectIds": [
+        6754
+       ]
+      },
+      {
+       "id": "oak_chair",
+       "name": "Oak chair",
+       "level": 19,
+       "xp": 120,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        6755
+       ]
+      },
+      {
+       "id": "oak_armchair",
+       "name": "Oak armchair",
+       "level": 26,
+       "xp": 180,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 3
+        }
+       ],
+       "objectIds": [
+        6756
+       ]
+      },
+      {
+       "id": "teak_armchair",
+       "name": "Teak armchair",
+       "level": 35,
+       "xp": 180,
+       "materials": [
+        {
+         "itemId": 8780,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        6757
+       ]
+      },
+      {
+       "id": "mahogany_armchair",
+       "name": "Mahogany armchair",
+       "level": 50,
+       "xp": 280,
+       "materials": [
+        {
+         "itemId": 8782,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        6758
+       ]
+      }
+     ]
+    },
+    {
+     "id": "chair_2",
+     "name": "Chair space 2",
+     "objectIds": [
+      4516
+     ],
+     "options": [
+      {
+       "id": "crude_wooden_chair",
+       "name": "Crude wooden chair",
+       "level": 1,
+       "xp": 58,
+       "materials": [
+        {
+         "itemId": 960,
+         "quantity": 2
+        },
+        {
+         "itemId": 1539,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        6752
+       ]
+      },
+      {
+       "id": "wooden_chair",
+       "name": "Wooden chair",
+       "level": 8,
+       "xp": 87,
+       "materials": [
+        {
+         "itemId": 960,
+         "quantity": 3
+        },
+        {
+         "itemId": 1539,
+         "quantity": 3
+        }
+       ],
+       "objectIds": [
+        6753
+       ]
+      },
+      {
+       "id": "rocking_chair",
+       "name": "Rocking chair",
+       "level": 14,
+       "xp": 87,
+       "materials": [
+        {
+         "itemId": 960,
+         "quantity": 3
+        },
+        {
+         "itemId": 1539,
+         "quantity": 3
+        }
+       ],
+       "objectIds": [
+        6754
+       ]
+      },
+      {
+       "id": "oak_chair",
+       "name": "Oak chair",
+       "level": 19,
+       "xp": 120,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        6755
+       ]
+      },
+      {
+       "id": "oak_armchair",
+       "name": "Oak armchair",
+       "level": 26,
+       "xp": 180,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 3
+        }
+       ],
+       "objectIds": [
+        6756
+       ]
+      },
+      {
+       "id": "teak_armchair",
+       "name": "Teak armchair",
+       "level": 35,
+       "xp": 180,
+       "materials": [
+        {
+         "itemId": 8780,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        6757
+       ]
+      },
+      {
+       "id": "mahogany_armchair",
+       "name": "Mahogany armchair",
+       "level": 50,
+       "xp": 280,
+       "materials": [
+        {
+         "itemId": 8782,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        6758
+       ]
+      }
+     ]
+    },
+    {
+     "id": "chair_3",
+     "name": "Chair space 3",
+     "objectIds": [
+      4517
+     ],
+     "options": [
+      {
+       "id": "crude_wooden_chair",
+       "name": "Crude wooden chair",
+       "level": 1,
+       "xp": 58,
+       "materials": [
+        {
+         "itemId": 960,
+         "quantity": 2
+        },
+        {
+         "itemId": 1539,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        6752
+       ]
+      },
+      {
+       "id": "wooden_chair",
+       "name": "Wooden chair",
+       "level": 8,
+       "xp": 87,
+       "materials": [
+        {
+         "itemId": 960,
+         "quantity": 3
+        },
+        {
+         "itemId": 1539,
+         "quantity": 3
+        }
+       ],
+       "objectIds": [
+        6753
+       ]
+      },
+      {
+       "id": "rocking_chair",
+       "name": "Rocking chair",
+       "level": 14,
+       "xp": 87,
+       "materials": [
+        {
+         "itemId": 960,
+         "quantity": 3
+        },
+        {
+         "itemId": 1539,
+         "quantity": 3
+        }
+       ],
+       "objectIds": [
+        6754
+       ]
+      },
+      {
+       "id": "oak_chair",
+       "name": "Oak chair",
+       "level": 19,
+       "xp": 120,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        6755
+       ]
+      },
+      {
+       "id": "oak_armchair",
+       "name": "Oak armchair",
+       "level": 26,
+       "xp": 180,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 3
+        }
+       ],
+       "objectIds": [
+        6756
+       ]
+      },
+      {
+       "id": "teak_armchair",
+       "name": "Teak armchair",
+       "level": 35,
+       "xp": 180,
+       "materials": [
+        {
+         "itemId": 8780,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        6757
+       ]
+      },
+      {
+       "id": "mahogany_armchair",
+       "name": "Mahogany armchair",
+       "level": 50,
+       "xp": 280,
+       "materials": [
+        {
+         "itemId": 8782,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        6758
+       ]
+      }
+     ]
+    },
+    {
+     "id": "rug",
+     "name": "Rug space",
+     "objectIds": [
+      4518,
+      4519,
+      4520
+     ],
+     "options": [
+      {
+       "id": "brown_rug",
+       "name": "Brown rug",
+       "level": 2,
+       "xp": 30,
+       "materials": [
+        {
+         "itemId": 8790,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        6759,
+        6760,
+        6761
+       ]
+      },
+      {
+       "id": "rug",
+       "name": "Rug",
+       "level": 13,
+       "xp": 60,
+       "materials": [
+        {
+         "itemId": 8790,
+         "quantity": 4
+        }
+       ],
+       "objectIds": [
+        6762,
+        6763,
+        6764
+       ]
+      },
+      {
+       "id": "opulent_rug",
+       "name": "Opulent rug",
+       "level": 65,
+       "xp": 360,
+       "materials": [
+        {
+         "itemId": 8790,
+         "quantity": 4
+        },
+        {
+         "itemId": 8784,
+         "quantity": 1
+        }
+       ],
+       "objectIds": [
+        6765,
+        6766,
+        6767
+       ]
+      }
+     ]
+    },
+    {
+     "id": "bookcase",
+     "name": "Bookcase space",
+     "objectIds": [
+      4521,
+      4522
+     ],
+     "options": [
+      {
+       "id": "wooden_bookcase",
+       "name": "Wooden bookcase",
+       "level": 4,
+       "xp": 115,
+       "materials": [
+        {
+         "itemId": 960,
+         "quantity": 4
+        },
+        {
+         "itemId": 1539,
+         "quantity": 4
+        }
+       ],
+       "objectIds": [
+        6768,
+        6771
+       ]
+      },
+      {
+       "id": "oak_bookcase",
+       "name": "Oak bookcase",
+       "level": 29,
+       "xp": 180,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 3
+        }
+       ],
+       "objectIds": [
+        6769,
+        6772
+       ]
+      },
+      {
+       "id": "mahogany_bookcase",
+       "name": "Mahogany bookcase",
+       "level": 40,
+       "xp": 420,
+       "materials": [
+        {
+         "itemId": 8782,
+         "quantity": 3
+        }
+       ],
+       "objectIds": [
+        6770,
+        6773
+       ]
+      }
+     ]
+    },
+    {
+     "id": "fireplace",
+     "name": "Fireplace space",
+     "objectIds": [
+      4523
+     ],
+     "options": [
+      {
+       "id": "clay_fireplace",
+       "name": "Clay fireplace",
+       "level": 3,
+       "xp": 30,
+       "materials": [
+        {
+         "itemId": 1761,
+         "quantity": 3
+        }
+       ],
+       "objectIds": [
+        6780,
+        6781
+       ]
+      },
+      {
+       "id": "stone_fireplace",
+       "name": "Stone fireplace",
+       "level": 33,
+       "xp": 40,
+       "materials": [
+        {
+         "itemId": 3420,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        6782,
+        6783
+       ]
+      },
+      {
+       "id": "marble_fireplace",
+       "name": "Marble fireplace",
+       "level": 63,
+       "xp": 500,
+       "materials": [
+        {
+         "itemId": 8786,
+         "quantity": 1
+        }
+       ],
+       "objectIds": [
+        6784,
+        6785
+       ]
+      }
+     ]
+    },
+    {
+     "id": "curtain",
+     "name": "Curtain space",
+     "objectIds": [
+      4524
+     ],
+     "options": [
+      {
+       "id": "torn_curtains",
+       "name": "Torn curtains",
+       "level": 2,
+       "xp": 132,
+       "materials": [
+        {
+         "itemId": 960,
+         "quantity": 3
+        },
+        {
+         "itemId": 8790,
+         "quantity": 3
+        },
+        {
+         "itemId": 1539,
+         "quantity": 3
+        }
+       ],
+       "objectIds": [
+        6774
+       ]
+      },
+      {
+       "id": "curtains",
+       "name": "Curtains",
+       "level": 18,
+       "xp": 225,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 3
+        },
+        {
+         "itemId": 8790,
+         "quantity": 3
+        }
+       ],
+       "objectIds": [
+        6775
+       ]
+      },
+      {
+       "id": "opulent_curtains",
+       "name": "Opulent curtains",
+       "level": 40,
+       "xp": 315,
+       "materials": [
+        {
+         "itemId": 8780,
+         "quantity": 3
+        },
+        {
+         "itemId": 8790,
+         "quantity": 3
+        }
+       ],
+       "objectIds": [
+        6776
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "kitchen",
+   "name": "Kitchen",
+   "level": 5,
+   "cost": 5000,
+   "planes": [
+    1,
+    2
+   ],
+   "colour": "#B07A3C",
+   "hotspots": [
+    {
+     "id": "stove",
+     "name": "Stove space",
+     "objectIds": [
+      15398
+     ],
+     "options": [
+      {
+       "id": "firepit",
+       "name": "Firepit",
+       "level": 5,
+       "xp": 40,
+       "materials": [
+        {
+         "itemId": 2353,
+         "quantity": 1
+        },
+        {
+         "itemId": 1761,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        13528
+       ]
+      },
+      {
+       "id": "firepit_hook",
+       "name": "Firepit with hook",
+       "level": 11,
+       "xp": 60,
+       "materials": [
+        {
+         "itemId": 2353,
+         "quantity": 2
+        },
+        {
+         "itemId": 1761,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        13529,
+        13530
+       ]
+      },
+      {
+       "id": "firepit_pot",
+       "name": "Firepit with pot",
+       "level": 17,
+       "xp": 80,
+       "materials": [
+        {
+         "itemId": 2353,
+         "quantity": 3
+        },
+        {
+         "itemId": 1761,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        13531,
+        13532
+       ]
+      },
+      {
+       "id": "small_oven",
+       "name": "Small oven",
+       "level": 24,
+       "xp": 80,
+       "materials": [
+        {
+         "itemId": 2353,
+         "quantity": 4
+        }
+       ],
+       "objectIds": [
+        13533,
+        13534,
+        13535
+       ]
+      },
+      {
+       "id": "large_oven",
+       "name": "Large oven",
+       "level": 29,
+       "xp": 100,
+       "materials": [
+        {
+         "itemId": 2353,
+         "quantity": 5
+        }
+       ],
+       "objectIds": [
+        13536,
+        13537,
+        13538
+       ]
+      },
+      {
+       "id": "steel_range",
+       "name": "Steel range",
+       "level": 34,
+       "xp": 120,
+       "materials": [
+        {
+         "itemId": 2353,
+         "quantity": 6
+        }
+       ],
+       "objectIds": [
+        13539,
+        13540,
+        13541
+       ]
+      },
+      {
+       "id": "fancy_range",
+       "name": "Fancy range",
+       "level": 42,
+       "xp": 160,
+       "materials": [
+        {
+         "itemId": 2353,
+         "quantity": 8
+        }
+       ],
+       "objectIds": [
+        13542,
+        13543,
+        13544
+       ]
+      }
+     ]
+    },
+    {
+     "id": "shelf",
+     "name": "Shelf space",
+     "objectIds": [
+      15399,
+      15400
+     ],
+     "options": [
+      {
+       "id": "wooden_shelves_1",
+       "name": "Wooden shelves 1",
+       "level": 6,
+       "xp": 87,
+       "materials": [
+        {
+         "itemId": 960,
+         "quantity": 3
+        },
+        {
+         "itemId": 1539,
+         "quantity": 3
+        }
+       ],
+       "objectIds": [
+        13545,
+        13552
+       ]
+      },
+      {
+       "id": "wooden_shelves_2",
+       "name": "Wooden shelves 2",
+       "level": 12,
+       "xp": 147,
+       "materials": [
+        {
+         "itemId": 960,
+         "quantity": 3
+        },
+        {
+         "itemId": 1539,
+         "quantity": 3
+        },
+        {
+         "itemId": 1761,
+         "quantity": 6
+        }
+       ],
+       "objectIds": [
+        13546,
+        13553
+       ]
+      },
+      {
+       "id": "wooden_shelves_3",
+       "name": "Wooden shelves 3",
+       "level": 23,
+       "xp": 147,
+       "materials": [
+        {
+         "itemId": 960,
+         "quantity": 3
+        },
+        {
+         "itemId": 1539,
+         "quantity": 3
+        },
+        {
+         "itemId": 1761,
+         "quantity": 6
+        }
+       ],
+       "objectIds": [
+        13547,
+        13554
+       ],
+       "note": "Better tea boost than oak shelves 1, so worth keeping until oak shelves 2"
+      },
+      {
+       "id": "oak_shelves_1",
+       "name": "Oak shelves 1",
+       "level": 34,
+       "xp": 240,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 3
+        },
+        {
+         "itemId": 1761,
+         "quantity": 6
+        }
+       ],
+       "objectIds": [
+        13548,
+        13555
+       ]
+      },
+      {
+       "id": "oak_shelves_2",
+       "name": "Oak shelves 2",
+       "level": 45,
+       "xp": 240,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 3
+        },
+        {
+         "itemId": 1761,
+         "quantity": 6
+        }
+       ],
+       "objectIds": [
+        13549,
+        13556
+       ]
+      },
+      {
+       "id": "teak_shelves_1",
+       "name": "Teak shelves 1",
+       "level": 56,
+       "xp": 330,
+       "materials": [
+        {
+         "itemId": 8780,
+         "quantity": 3
+        },
+        {
+         "itemId": 1761,
+         "quantity": 6
+        }
+       ],
+       "objectIds": [
+        13550,
+        13557
+       ]
+      },
+      {
+       "id": "teak_shelves_2",
+       "name": "Teak shelves 2",
+       "level": 67,
+       "xp": 930,
+       "materials": [
+        {
+         "itemId": 8780,
+         "quantity": 3
+        },
+        {
+         "itemId": 1761,
+         "quantity": 6
+        },
+        {
+         "itemId": 8784,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        13551,
+        13558
+       ]
+      }
+     ]
+    },
+    {
+     "id": "barrel",
+     "name": "Barrel space",
+     "objectIds": [
+      15401
+     ],
+     "options": [
+      {
+       "id": "beer_barrel",
+       "name": "Beer barrel",
+       "level": 7,
+       "xp": 87,
+       "materials": [
+        {
+         "itemId": 960,
+         "quantity": 3
+        },
+        {
+         "itemId": 1539,
+         "quantity": 3
+        }
+       ],
+       "objectIds": [
+        13568
+       ]
+      },
+      {
+       "id": "cider_barrel",
+       "name": "Cider barrel",
+       "level": 12,
+       "xp": 91,
+       "materials": [
+        {
+         "itemId": 960,
+         "quantity": 3
+        },
+        {
+         "itemId": 1539,
+         "quantity": 3
+        }
+       ],
+       "objectIds": [
+        13569
+       ],
+       "note": "Also needs 8 cider"
+      },
+      {
+       "id": "asgarnian_ale",
+       "name": "Asgarnian ale",
+       "level": 18,
+       "xp": 184,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 3
+        }
+       ],
+       "objectIds": [
+        13570
+       ],
+       "note": "Also needs 8 Asgarnian ale"
+      },
+      {
+       "id": "greenmans_ale",
+       "name": "Greenman's ale",
+       "level": 26,
+       "xp": 184,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 3
+        }
+       ],
+       "objectIds": [
+        13571
+       ],
+       "note": "Also needs 8 Greenman's ale"
+      },
+      {
+       "id": "dragon_bitter",
+       "name": "Dragon bitter",
+       "level": 36,
+       "xp": 224,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 3
+        },
+        {
+         "itemId": 2353,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        13572
+       ],
+       "note": "Also needs 8 Dragon bitter"
+      },
+      {
+       "id": "chefs_delight",
+       "name": "Chef's delight",
+       "level": 48,
+       "xp": 224,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 3
+        },
+        {
+         "itemId": 2353,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        13573
+       ],
+       "note": "Also needs 8 Chef's delight"
+      }
+     ]
+    },
+    {
+     "id": "cat_basket",
+     "name": "Cat basket space",
+     "objectIds": [
+      15402
+     ],
+     "options": [
+      {
+       "id": "cat_blanket",
+       "name": "Cat blanket",
+       "level": 5,
+       "xp": 15,
+       "materials": [
+        {
+         "itemId": 8790,
+         "quantity": 1
+        }
+       ]
+      },
+      {
+       "id": "cat_basket",
+       "name": "Cat basket",
+       "level": 19,
+       "xp": 58,
+       "materials": [
+        {
+         "itemId": 960,
+         "quantity": 2
+        },
+        {
+         "itemId": 1539,
+         "quantity": 2
+        }
+       ]
+      },
+      {
+       "id": "cushioned_basket",
+       "name": "Cushioned basket",
+       "level": 33,
+       "xp": 58,
+       "materials": [
+        {
+         "itemId": 960,
+         "quantity": 2
+        },
+        {
+         "itemId": 1539,
+         "quantity": 2
+        },
+        {
+         "itemId": 1737,
+         "quantity": 2
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "larder",
+     "name": "Larder space",
+     "objectIds": [
+      15403
+     ],
+     "options": [
+      {
+       "id": "wooden_larder",
+       "name": "Wooden larder",
+       "level": 9,
+       "xp": 228,
+       "materials": [
+        {
+         "itemId": 960,
+         "quantity": 8
+        },
+        {
+         "itemId": 1539,
+         "quantity": 8
+        }
+       ],
+       "objectIds": [
+        13565
+       ]
+      },
+      {
+       "id": "oak_larder",
+       "name": "Oak larder",
+       "level": 33,
+       "xp": 480,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 8
+        }
+       ],
+       "objectIds": [
+        13566
+       ]
+      },
+      {
+       "id": "teak_larder",
+       "name": "Teak larder",
+       "level": 43,
+       "xp": 750,
+       "materials": [
+        {
+         "itemId": 8780,
+         "quantity": 8
+        },
+        {
+         "itemId": 8790,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        13567
+       ]
+      }
+     ]
+    },
+    {
+     "id": "sink",
+     "name": "Sink space",
+     "objectIds": [
+      15404
+     ],
+     "options": [
+      {
+       "id": "pump_and_drain",
+       "name": "Pump and drain",
+       "level": 7,
+       "xp": 100,
+       "materials": [
+        {
+         "itemId": 2353,
+         "quantity": 5
+        }
+       ],
+       "objectIds": [
+        13559,
+        13560
+       ]
+      },
+      {
+       "id": "pump_and_tub",
+       "name": "Pump and tub",
+       "level": 27,
+       "xp": 200,
+       "materials": [
+        {
+         "itemId": 2353,
+         "quantity": 10
+        }
+       ],
+       "objectIds": [
+        13561,
+        13562
+       ]
+      },
+      {
+       "id": "sink",
+       "name": "Sink",
+       "level": 47,
+       "xp": 300,
+       "materials": [
+        {
+         "itemId": 2353,
+         "quantity": 15
+        }
+       ],
+       "objectIds": [
+        13563,
+        13564
+       ]
+      },
+      {
+       "id": "gold_sink",
+       "name": "Gold sink",
+       "level": 47,
+       "xp": 11144,
+       "materials": [
+        {
+         "itemId": 26266,
+         "quantity": 10
+        },
+        {
+         "itemId": 8782,
+         "quantity": 5
+        },
+        {
+         "itemId": 8784,
+         "quantity": 5
+        }
+       ],
+       "objectIds": [
+        26458,
+        42852
+       ]
+      }
+     ]
+    },
+    {
+     "id": "table",
+     "name": "Table space",
+     "objectIds": [
+      15405
+     ],
+     "options": [
+      {
+       "id": "kitchen_table",
+       "name": "Kitchen table",
+       "level": 12,
+       "xp": 87,
+       "materials": [
+        {
+         "itemId": 960,
+         "quantity": 3
+        },
+        {
+         "itemId": 1539,
+         "quantity": 3
+        }
+       ],
+       "objectIds": [
+        13577
+       ]
+      },
+      {
+       "id": "oak_kitchen_table",
+       "name": "Oak kitchen table",
+       "level": 32,
+       "xp": 180,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 3
+        }
+       ],
+       "objectIds": [
+        13578
+       ]
+      },
+      {
+       "id": "teak_kitchen_table",
+       "name": "Teak kitchen table",
+       "level": 52,
+       "xp": 270,
+       "materials": [
+        {
+         "itemId": 8780,
+         "quantity": 3
+        }
+       ],
+       "objectIds": [
+        13579
+       ]
+      }
+     ]
+    },
+    {
+     "id": "spice_rack",
+     "name": "Spice rack space",
+     "objectIds": [
+      37620
+     ],
+     "options": [
+      {
+       "id": "spice_rack",
+       "name": "Spice rack",
+       "level": 60,
+       "xp": 374,
+       "materials": [
+        {
+         "itemId": 8780,
+         "quantity": 3
+        },
+        {
+         "itemId": 1761,
+         "quantity": 6
+        }
+       ],
+       "objectIds": [
+        37621
+       ],
+       "note": "Also needs 4 doses each of brown, orange, red and yellow spice"
+      }
+     ]
+    }
+   ],
+   "note": "Two non-parallel door spaces, which makes it a good corner room"
+  },
+  {
+   "id": "dining_room",
+   "name": "Dining room",
+   "level": 10,
+   "cost": 5000,
+   "planes": [
+    1,
+    2
+   ],
+   "colour": "#9C5B3C",
+   "hotspots": [
+    {
+     "id": "table",
+     "name": "Table space",
+     "objectIds": [
+      15298
+     ],
+     "options": [
+      {
+       "id": "wood_dining_table",
+       "name": "Wood dining table",
+       "level": 10,
+       "xp": 115,
+       "materials": [
+        {
+         "itemId": 960,
+         "quantity": 4
+        },
+        {
+         "itemId": 1539,
+         "quantity": 4
+        }
+       ],
+       "objectIds": [
+        13293
+       ]
+      },
+      {
+       "id": "oak_dining_table",
+       "name": "Oak dining table",
+       "level": 22,
+       "xp": 240,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 4
+        }
+       ],
+       "objectIds": [
+        13294
+       ]
+      },
+      {
+       "id": "carved_oak_table",
+       "name": "Carved oak table",
+       "level": 31,
+       "xp": 360,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 6
+        }
+       ],
+       "objectIds": [
+        13295
+       ]
+      },
+      {
+       "id": "teak_table",
+       "name": "Teak table",
+       "level": 38,
+       "xp": 360,
+       "materials": [
+        {
+         "itemId": 8780,
+         "quantity": 4
+        }
+       ],
+       "objectIds": [
+        13296
+       ]
+      },
+      {
+       "id": "carved_teak_table",
+       "name": "Carved teak table",
+       "level": 45,
+       "xp": 600,
+       "materials": [
+        {
+         "itemId": 8780,
+         "quantity": 6
+        },
+        {
+         "itemId": 8790,
+         "quantity": 4
+        }
+       ],
+       "objectIds": [
+        13297
+       ]
+      },
+      {
+       "id": "mahogany_table",
+       "name": "Mahogany table",
+       "level": 52,
+       "xp": 840,
+       "materials": [
+        {
+         "itemId": 8782,
+         "quantity": 6
+        }
+       ],
+       "objectIds": [
+        13298
+       ]
+      },
+      {
+       "id": "opulent_table",
+       "name": "Opulent table",
+       "level": 72,
+       "xp": 3100,
+       "materials": [
+        {
+         "itemId": 8782,
+         "quantity": 6
+        },
+        {
+         "itemId": 8790,
+         "quantity": 4
+        },
+        {
+         "itemId": 8784,
+         "quantity": 4
+        },
+        {
+         "itemId": 8786,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        13299
+       ]
+      }
+     ]
+    },
+    {
+     "id": "seating_1",
+     "name": "Seating space 1",
+     "objectIds": [
+      15299
+     ],
+     "options": [
+      {
+       "id": "wooden_bench",
+       "name": "Wooden bench",
+       "level": 10,
+       "xp": 115,
+       "materials": [
+        {
+         "itemId": 960,
+         "quantity": 4
+        },
+        {
+         "itemId": 1539,
+         "quantity": 4
+        }
+       ],
+       "objectIds": [
+        13300,
+        26210
+       ]
+      },
+      {
+       "id": "oak_bench",
+       "name": "Oak bench",
+       "level": 22,
+       "xp": 240,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 4
+        }
+       ],
+       "objectIds": [
+        13301,
+        26211
+       ]
+      },
+      {
+       "id": "carved_oak_bench",
+       "name": "Carved oak bench",
+       "level": 31,
+       "xp": 240,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 4
+        }
+       ],
+       "objectIds": [
+        13302,
+        26212
+       ]
+      },
+      {
+       "id": "teak_dining_bench",
+       "name": "Teak dining bench",
+       "level": 38,
+       "xp": 360,
+       "materials": [
+        {
+         "itemId": 8780,
+         "quantity": 4
+        }
+       ],
+       "objectIds": [
+        13303,
+        26213
+       ]
+      },
+      {
+       "id": "carved_teak_bench",
+       "name": "Carved teak bench",
+       "level": 44,
+       "xp": 360,
+       "materials": [
+        {
+         "itemId": 8780,
+         "quantity": 4
+        }
+       ],
+       "objectIds": [
+        13304,
+        26214
+       ]
+      },
+      {
+       "id": "mahogany_bench",
+       "name": "Mahogany bench",
+       "level": 52,
+       "xp": 560,
+       "materials": [
+        {
+         "itemId": 8782,
+         "quantity": 4
+        }
+       ],
+       "objectIds": [
+        13305,
+        26215
+       ]
+      },
+      {
+       "id": "gilded_bench",
+       "name": "Gilded bench",
+       "level": 61,
+       "xp": 1760,
+       "materials": [
+        {
+         "itemId": 8782,
+         "quantity": 4
+        },
+        {
+         "itemId": 8784,
+         "quantity": 4
+        }
+       ],
+       "objectIds": [
+        13306,
+        26216
+       ]
+      }
+     ]
+    },
+    {
+     "id": "seating_2",
+     "name": "Seating space 2",
+     "objectIds": [
+      15300
+     ],
+     "options": [
+      {
+       "id": "wooden_bench",
+       "name": "Wooden bench",
+       "level": 10,
+       "xp": 115,
+       "materials": [
+        {
+         "itemId": 960,
+         "quantity": 4
+        },
+        {
+         "itemId": 1539,
+         "quantity": 4
+        }
+       ],
+       "objectIds": [
+        13300,
+        26210
+       ]
+      },
+      {
+       "id": "oak_bench",
+       "name": "Oak bench",
+       "level": 22,
+       "xp": 240,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 4
+        }
+       ],
+       "objectIds": [
+        13301,
+        26211
+       ]
+      },
+      {
+       "id": "carved_oak_bench",
+       "name": "Carved oak bench",
+       "level": 31,
+       "xp": 240,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 4
+        }
+       ],
+       "objectIds": [
+        13302,
+        26212
+       ]
+      },
+      {
+       "id": "teak_dining_bench",
+       "name": "Teak dining bench",
+       "level": 38,
+       "xp": 360,
+       "materials": [
+        {
+         "itemId": 8780,
+         "quantity": 4
+        }
+       ],
+       "objectIds": [
+        13303,
+        26213
+       ]
+      },
+      {
+       "id": "carved_teak_bench",
+       "name": "Carved teak bench",
+       "level": 44,
+       "xp": 360,
+       "materials": [
+        {
+         "itemId": 8780,
+         "quantity": 4
+        }
+       ],
+       "objectIds": [
+        13304,
+        26214
+       ]
+      },
+      {
+       "id": "mahogany_bench",
+       "name": "Mahogany bench",
+       "level": 52,
+       "xp": 560,
+       "materials": [
+        {
+         "itemId": 8782,
+         "quantity": 4
+        }
+       ],
+       "objectIds": [
+        13305,
+        26215
+       ]
+      },
+      {
+       "id": "gilded_bench",
+       "name": "Gilded bench",
+       "level": 61,
+       "xp": 1760,
+       "materials": [
+        {
+         "itemId": 8782,
+         "quantity": 4
+        },
+        {
+         "itemId": 8784,
+         "quantity": 4
+        }
+       ],
+       "objectIds": [
+        13306,
+        26216
+       ]
+      }
+     ]
+    },
+    {
+     "id": "fireplace",
+     "name": "Fireplace space",
+     "objectIds": [
+      15301
+     ],
+     "options": [
+      {
+       "id": "clay_fireplace",
+       "name": "Clay fireplace",
+       "level": 3,
+       "xp": 30,
+       "materials": [
+        {
+         "itemId": 1761,
+         "quantity": 3
+        }
+       ],
+       "objectIds": [
+        6780,
+        6781
+       ]
+      },
+      {
+       "id": "stone_fireplace",
+       "name": "Stone fireplace",
+       "level": 33,
+       "xp": 40,
+       "materials": [
+        {
+         "itemId": 3420,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        6782,
+        6783
+       ]
+      },
+      {
+       "id": "marble_fireplace",
+       "name": "Marble fireplace",
+       "level": 63,
+       "xp": 500,
+       "materials": [
+        {
+         "itemId": 8786,
+         "quantity": 1
+        }
+       ],
+       "objectIds": [
+        6784,
+        6785
+       ]
+      }
+     ]
+    },
+    {
+     "id": "curtain",
+     "name": "Curtain space",
+     "objectIds": [
+      15302
+     ],
+     "options": [
+      {
+       "id": "torn_curtains",
+       "name": "Torn curtains",
+       "level": 2,
+       "xp": 132,
+       "materials": [
+        {
+         "itemId": 960,
+         "quantity": 3
+        },
+        {
+         "itemId": 8790,
+         "quantity": 3
+        },
+        {
+         "itemId": 1539,
+         "quantity": 3
+        }
+       ],
+       "objectIds": [
+        6774
+       ]
+      },
+      {
+       "id": "curtains",
+       "name": "Curtains",
+       "level": 18,
+       "xp": 225,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 3
+        },
+        {
+         "itemId": 8790,
+         "quantity": 3
+        }
+       ],
+       "objectIds": [
+        6775
+       ]
+      },
+      {
+       "id": "opulent_curtains",
+       "name": "Opulent curtains",
+       "level": 40,
+       "xp": 315,
+       "materials": [
+        {
+         "itemId": 8780,
+         "quantity": 3
+        },
+        {
+         "itemId": 8790,
+         "quantity": 3
+        }
+       ],
+       "objectIds": [
+        6776
+       ]
+      }
+     ]
+    },
+    {
+     "id": "decoration",
+     "name": "Decoration space",
+     "objectIds": [
+      15303
+     ],
+     "options": [
+      {
+       "id": "oak_wall_decoration",
+       "name": "Oak wall decoration",
+       "level": 16,
+       "xp": 120,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        13798,
+        13799,
+        13800,
+        13801,
+        13802,
+        13803,
+        13804,
+        13805,
+        13806,
+        13807,
+        13808,
+        13809,
+        13810,
+        13811,
+        13812,
+        13813
+       ],
+       "note": "Needs a family crest from Sir Renitee in White Knights' Castle"
+      },
+      {
+       "id": "teak_wall_decoration",
+       "name": "Teak wall decoration",
+       "level": 36,
+       "xp": 180,
+       "materials": [
+        {
+         "itemId": 8780,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        13814,
+        13815,
+        13816,
+        13817,
+        13818,
+        13819,
+        13820,
+        13821,
+        13822,
+        13823,
+        13824,
+        13825,
+        13826,
+        13827,
+        13828,
+        13829
+       ],
+       "note": "Needs a family crest from Sir Renitee in White Knights' Castle"
+      },
+      {
+       "id": "gilded_decoration",
+       "name": "Gilded decoration",
+       "level": 56,
+       "xp": 1020,
+       "materials": [
+        {
+         "itemId": 8782,
+         "quantity": 3
+        },
+        {
+         "itemId": 8784,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        13782,
+        13783,
+        13784,
+        13785,
+        13786,
+        13787,
+        13788,
+        13789,
+        13790,
+        13791,
+        13792,
+        13793,
+        13794,
+        13795,
+        13796,
+        13797
+       ],
+       "note": "Needs a family crest from Sir Renitee in White Knights' Castle"
+      }
+     ]
+    },
+    {
+     "id": "bell_pull",
+     "name": "Bell pull space",
+     "objectIds": [
+      15304
+     ],
+     "options": [
+      {
+       "id": "rope_bell_pull",
+       "name": "Rope bell-pull",
+       "level": 26,
+       "xp": 64,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 1
+        }
+       ],
+       "objectIds": [
+        13307
+       ],
+       "note": "Also needs a rope"
+      },
+      {
+       "id": "bell_pull",
+       "name": "Bell-pull",
+       "level": 37,
+       "xp": 120,
+       "materials": [
+        {
+         "itemId": 8780,
+         "quantity": 1
+        },
+        {
+         "itemId": 8790,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        13308
+       ]
+      },
+      {
+       "id": "posh_bell_pull",
+       "name": "Posh bell-pull",
+       "level": 60,
+       "xp": 420,
+       "materials": [
+        {
+         "itemId": 8780,
+         "quantity": 1
+        },
+        {
+         "itemId": 8790,
+         "quantity": 2
+        },
+        {
+         "itemId": 8784,
+         "quantity": 1
+        }
+       ],
+       "objectIds": [
+        13309
+       ]
+      }
+     ]
+    }
+   ],
+   "note": "A servant serves food here. The bell-pull summons your servant instantly"
+  },
+  {
+   "id": "bedroom",
+   "name": "Bedroom",
+   "level": 20,
+   "cost": 10000,
+   "planes": [
+    1,
+    2
+   ],
+   "colour": "#6B5B95",
+   "hotspots": [
+    {
+     "id": "bed",
+     "name": "Bed space",
+     "objectIds": [
+      15260
+     ],
+     "options": [
+      {
+       "id": "wooden_bed",
+       "name": "Wooden bed",
+       "level": 20,
+       "xp": 117,
+       "materials": [
+        {
+         "itemId": 960,
+         "quantity": 3
+        },
+        {
+         "itemId": 1539,
+         "quantity": 3
+        },
+        {
+         "itemId": 8790,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        13148
+       ]
+      },
+      {
+       "id": "oak_bed",
+       "name": "Oak bed",
+       "level": 30,
+       "xp": 210,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 3
+        },
+        {
+         "itemId": 8790,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        13149
+       ]
+      },
+      {
+       "id": "large_oak_bed",
+       "name": "Large oak bed",
+       "level": 34,
+       "xp": 330,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 5
+        },
+        {
+         "itemId": 8790,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        13150
+       ]
+      },
+      {
+       "id": "teak_bed",
+       "name": "Teak bed",
+       "level": 40,
+       "xp": 300,
+       "materials": [
+        {
+         "itemId": 8780,
+         "quantity": 3
+        },
+        {
+         "itemId": 8790,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        13151
+       ]
+      },
+      {
+       "id": "large_teak_bed",
+       "name": "Large teak bed",
+       "level": 45,
+       "xp": 480,
+       "materials": [
+        {
+         "itemId": 8780,
+         "quantity": 5
+        },
+        {
+         "itemId": 8790,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        13152
+       ]
+      },
+      {
+       "id": "four_poster",
+       "name": "4-poster",
+       "level": 53,
+       "xp": 450,
+       "materials": [
+        {
+         "itemId": 8782,
+         "quantity": 3
+        },
+        {
+         "itemId": 8790,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        13153
+       ]
+      },
+      {
+       "id": "gilded_four_poster",
+       "name": "Gilded 4-poster",
+       "level": 60,
+       "xp": 1330,
+       "materials": [
+        {
+         "itemId": 8782,
+         "quantity": 5
+        },
+        {
+         "itemId": 8790,
+         "quantity": 2
+        },
+        {
+         "itemId": 8784,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        13154
+       ]
+      }
+     ]
+    },
+    {
+     "id": "wardrobe",
+     "name": "Wardrobe space",
+     "objectIds": [
+      15261
+     ],
+     "options": [
+      {
+       "id": "shoe_box",
+       "name": "Shoe box",
+       "level": 20,
+       "xp": 58,
+       "materials": [
+        {
+         "itemId": 960,
+         "quantity": 2
+        },
+        {
+         "itemId": 1539,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        13155
+       ]
+      },
+      {
+       "id": "oak_drawers",
+       "name": "Oak drawers",
+       "level": 27,
+       "xp": 120,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        13156
+       ]
+      },
+      {
+       "id": "oak_wardrobe",
+       "name": "Oak wardrobe",
+       "level": 39,
+       "xp": 180,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 3
+        }
+       ],
+       "objectIds": [
+        13157
+       ]
+      },
+      {
+       "id": "teak_drawers",
+       "name": "Teak drawers",
+       "level": 51,
+       "xp": 180,
+       "materials": [
+        {
+         "itemId": 8780,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        13158
+       ]
+      },
+      {
+       "id": "teak_wardrobe",
+       "name": "Teak wardrobe",
+       "level": 63,
+       "xp": 270,
+       "materials": [
+        {
+         "itemId": 8780,
+         "quantity": 3
+        }
+       ],
+       "objectIds": [
+        13159
+       ]
+      },
+      {
+       "id": "mahogany_wardrobe",
+       "name": "Mahogany wardrobe",
+       "level": 75,
+       "xp": 420,
+       "materials": [
+        {
+         "itemId": 8782,
+         "quantity": 3
+        }
+       ],
+       "objectIds": [
+        13160
+       ]
+      },
+      {
+       "id": "gilded_wardrobe",
+       "name": "Gilded wardrobe",
+       "level": 87,
+       "xp": 720,
+       "materials": [
+        {
+         "itemId": 8782,
+         "quantity": 3
+        },
+        {
+         "itemId": 8784,
+         "quantity": 1
+        }
+       ],
+       "objectIds": [
+        13161
+       ]
+      }
+     ]
+    },
+    {
+     "id": "dresser",
+     "name": "Dresser space",
+     "objectIds": [
+      15262
+     ],
+     "options": [
+      {
+       "id": "shaving_stand",
+       "name": "Shaving stand",
+       "level": 21,
+       "xp": 30,
+       "materials": [
+        {
+         "itemId": 960,
+         "quantity": 1
+        },
+        {
+         "itemId": 1539,
+         "quantity": 1
+        },
+        {
+         "itemId": 1775,
+         "quantity": 1
+        }
+       ]
+      },
+      {
+       "id": "oak_shaving_stand",
+       "name": "Oak shaving stand",
+       "level": 29,
+       "xp": 61,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 1
+        },
+        {
+         "itemId": 1775,
+         "quantity": 1
+        }
+       ]
+      },
+      {
+       "id": "oak_dresser",
+       "name": "Oak dresser",
+       "level": 37,
+       "xp": 121,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 2
+        },
+        {
+         "itemId": 1775,
+         "quantity": 1
+        }
+       ]
+      },
+      {
+       "id": "teak_dresser",
+       "name": "Teak dresser",
+       "level": 46,
+       "xp": 181,
+       "materials": [
+        {
+         "itemId": 8780,
+         "quantity": 2
+        },
+        {
+         "itemId": 1775,
+         "quantity": 1
+        }
+       ]
+      },
+      {
+       "id": "fancy_teak_dresser",
+       "name": "Fancy teak dresser",
+       "level": 56,
+       "xp": 182,
+       "materials": [
+        {
+         "itemId": 8780,
+         "quantity": 2
+        },
+        {
+         "itemId": 1775,
+         "quantity": 2
+        }
+       ]
+      },
+      {
+       "id": "mahogany_dresser",
+       "name": "Mahogany dresser",
+       "level": 64,
+       "xp": 281,
+       "materials": [
+        {
+         "itemId": 8782,
+         "quantity": 2
+        },
+        {
+         "itemId": 1775,
+         "quantity": 1
+        }
+       ]
+      },
+      {
+       "id": "gilded_dresser",
+       "name": "Gilded dresser",
+       "level": 74,
+       "xp": 582,
+       "materials": [
+        {
+         "itemId": 8782,
+         "quantity": 2
+        },
+        {
+         "itemId": 1775,
+         "quantity": 2
+        },
+        {
+         "itemId": 8784,
+         "quantity": 1
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "curtain",
+     "name": "Curtain space",
+     "objectIds": [
+      15263
+     ],
+     "options": [
+      {
+       "id": "torn_curtains",
+       "name": "Torn curtains",
+       "level": 2,
+       "xp": 132,
+       "materials": [
+        {
+         "itemId": 960,
+         "quantity": 3
+        },
+        {
+         "itemId": 8790,
+         "quantity": 3
+        },
+        {
+         "itemId": 1539,
+         "quantity": 3
+        }
+       ],
+       "objectIds": [
+        6774
+       ]
+      },
+      {
+       "id": "curtains",
+       "name": "Curtains",
+       "level": 18,
+       "xp": 225,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 3
+        },
+        {
+         "itemId": 8790,
+         "quantity": 3
+        }
+       ],
+       "objectIds": [
+        6775
+       ]
+      },
+      {
+       "id": "opulent_curtains",
+       "name": "Opulent curtains",
+       "level": 40,
+       "xp": 315,
+       "materials": [
+        {
+         "itemId": 8780,
+         "quantity": 3
+        },
+        {
+         "itemId": 8790,
+         "quantity": 3
+        }
+       ],
+       "objectIds": [
+        6776
+       ]
+      }
+     ]
+    },
+    {
+     "id": "rug",
+     "name": "Rug space",
+     "objectIds": [
+      15264,
+      15265,
+      15266
+     ],
+     "options": [
+      {
+       "id": "brown_rug",
+       "name": "Brown rug",
+       "level": 2,
+       "xp": 30,
+       "materials": [
+        {
+         "itemId": 8790,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        6759,
+        6760,
+        6761
+       ]
+      },
+      {
+       "id": "rug",
+       "name": "Rug",
+       "level": 13,
+       "xp": 60,
+       "materials": [
+        {
+         "itemId": 8790,
+         "quantity": 4
+        }
+       ],
+       "objectIds": [
+        6762,
+        6763,
+        6764
+       ]
+      },
+      {
+       "id": "opulent_rug",
+       "name": "Opulent rug",
+       "level": 65,
+       "xp": 360,
+       "materials": [
+        {
+         "itemId": 8790,
+         "quantity": 4
+        },
+        {
+         "itemId": 8784,
+         "quantity": 1
+        }
+       ],
+       "objectIds": [
+        6765,
+        6766,
+        6767
+       ]
+      }
+     ]
+    },
+    {
+     "id": "fireplace",
+     "name": "Fireplace space",
+     "objectIds": [
+      15267
+     ],
+     "options": [
+      {
+       "id": "clay_fireplace",
+       "name": "Clay fireplace",
+       "level": 3,
+       "xp": 30,
+       "materials": [
+        {
+         "itemId": 1761,
+         "quantity": 3
+        }
+       ],
+       "objectIds": [
+        6780,
+        6781
+       ]
+      },
+      {
+       "id": "stone_fireplace",
+       "name": "Stone fireplace",
+       "level": 33,
+       "xp": 40,
+       "materials": [
+        {
+         "itemId": 3420,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        6782,
+        6783
+       ]
+      },
+      {
+       "id": "marble_fireplace",
+       "name": "Marble fireplace",
+       "level": 63,
+       "xp": 500,
+       "materials": [
+        {
+         "itemId": 8786,
+         "quantity": 1
+        }
+       ],
+       "objectIds": [
+        6784,
+        6785
+       ]
+      }
+     ]
+    },
+    {
+     "id": "corner",
+     "name": "Corner space",
+     "objectIds": [
+      15268
+     ],
+     "options": [
+      {
+       "id": "oak_clock",
+       "name": "Oak clock",
+       "level": 25,
+       "xp": 142,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        13169
+       ],
+       "note": "Also needs clockwork"
+      },
+      {
+       "id": "teak_clock",
+       "name": "Teak clock",
+       "level": 55,
+       "xp": 202,
+       "materials": [
+        {
+         "itemId": 8780,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        13170
+       ],
+       "note": "Also needs clockwork"
+      },
+      {
+       "id": "servants_money_bag",
+       "name": "Servant's money bag",
+       "level": 58,
+       "xp": 595,
+       "materials": [
+        {
+         "itemId": 8782,
+         "quantity": 2
+        },
+        {
+         "itemId": 8790,
+         "quantity": 1
+        },
+        {
+         "itemId": 8784,
+         "quantity": 1
+        }
+       ],
+       "note": "Pays your servant automatically"
+      },
+      {
+       "id": "gilded_clock",
+       "name": "Gilded clock",
+       "level": 85,
+       "xp": 602,
+       "materials": [
+        {
+         "itemId": 8782,
+         "quantity": 2
+        },
+        {
+         "itemId": 8784,
+         "quantity": 1
+        }
+       ],
+       "objectIds": [
+        13171
+       ],
+       "note": "Also needs clockwork"
+      }
+     ]
+    }
+   ],
+   "note": "Two bedrooms with beds are needed before you can hire a servant. Two non-parallel doors, so a good corner room"
+  },
+  {
+   "id": "skill_hall",
+   "name": "Hall (skill trophies)",
+   "level": 25,
+   "cost": 15000,
+   "planes": [
+    1,
+    2
+   ],
+   "colour": "#3E6B8A",
+   "hotspots": [
+    {
+     "id": "stairs",
+     "name": "Stair space",
+     "objectIds": [
+      15377,
+      15378,
+      15379,
+      15380,
+      15381
+     ],
+     "options": [
+      {
+       "id": "rug_stairs_brown",
+       "name": "Rug",
+       "level": 13,
+       "xp": 60,
+       "materials": [
+        {
+         "itemId": 8790,
+         "quantity": 4
+        }
+       ]
+      },
+      {
+       "id": "oak_staircase",
+       "name": "Oak staircase",
+       "level": 27,
+       "xp": 680,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 10
+        },
+        {
+         "itemId": 2353,
+         "quantity": 4
+        }
+       ]
+      },
+      {
+       "id": "teak_staircase",
+       "name": "Teak staircase",
+       "level": 48,
+       "xp": 980,
+       "materials": [
+        {
+         "itemId": 8780,
+         "quantity": 10
+        },
+        {
+         "itemId": 2353,
+         "quantity": 4
+        }
+       ]
+      },
+      {
+       "id": "opulent_rug_stairs",
+       "name": "Opulent rug",
+       "level": 65,
+       "xp": 360,
+       "materials": [
+        {
+         "itemId": 8790,
+         "quantity": 4
+        },
+        {
+         "itemId": 8784,
+         "quantity": 1
+        }
+       ]
+      },
+      {
+       "id": "limestone_spiral",
+       "name": "Limestone spiral staircase",
+       "level": 67,
+       "xp": 1040,
+       "materials": [
+        {
+         "itemId": 8780,
+         "quantity": 10
+        },
+        {
+         "itemId": 3420,
+         "quantity": 7
+        }
+       ]
+      },
+      {
+       "id": "marble_staircase",
+       "name": "Marble staircase",
+       "level": 82,
+       "xp": 3200,
+       "materials": [
+        {
+         "itemId": 8782,
+         "quantity": 5
+        },
+        {
+         "itemId": 8786,
+         "quantity": 5
+        }
+       ]
+      },
+      {
+       "id": "marble_spiral",
+       "name": "Marble spiral",
+       "level": 97,
+       "xp": 4400,
+       "materials": [
+        {
+         "itemId": 8780,
+         "quantity": 10
+        },
+        {
+         "itemId": 8786,
+         "quantity": 7
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "head_trophy",
+     "name": "Head trophy space",
+     "objectIds": [
+      15382
+     ],
+     "options": [
+      {
+       "id": "teak_head_display",
+       "name": "Teak display",
+       "level": 38,
+       "xp": 180,
+       "materials": [
+        {
+         "itemId": 8780,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        56110
+       ]
+      },
+      {
+       "id": "mahogany_head_display",
+       "name": "Mahogany display",
+       "level": 58,
+       "xp": 280,
+       "materials": [
+        {
+         "itemId": 8782,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        56111
+       ]
+      },
+      {
+       "id": "gilded_head_display",
+       "name": "Gilded display",
+       "level": 78,
+       "xp": 600,
+       "materials": [
+        {
+         "itemId": 8782,
+         "quantity": 2
+        },
+        {
+         "itemId": 8784,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        56112
+       ],
+       "note": "Planks not needed when upgrading from the mahogany display"
+      }
+     ]
+    },
+    {
+     "id": "fishing_trophy",
+     "name": "Fishing trophy space",
+     "objectIds": [
+      15383
+     ],
+     "options": [
+      {
+       "id": "oak_fish_display",
+       "name": "Oak display",
+       "level": 36,
+       "xp": 120,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        56130
+       ]
+      },
+      {
+       "id": "teak_fish_display",
+       "name": "Teak display",
+       "level": 56,
+       "xp": 180,
+       "materials": [
+        {
+         "itemId": 8780,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        56131
+       ]
+      },
+      {
+       "id": "mahogany_fish_display",
+       "name": "Mahogany display",
+       "level": 76,
+       "xp": 280,
+       "materials": [
+        {
+         "itemId": 8782,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        56132
+       ]
+      }
+     ]
+    },
+    {
+     "id": "armour_1",
+     "name": "Armour space 1",
+     "objectIds": [
+      15384
+     ],
+     "options": [
+      {
+       "id": "cw_armour_1",
+       "name": "Castle Wars armour 1",
+       "level": 28,
+       "xp": 135,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        13494
+       ],
+       "note": "Also needs a decorative helm, armour and shield"
+      },
+      {
+       "id": "cw_armour_2",
+       "name": "Castle Wars armour 2",
+       "level": 28,
+       "xp": 150,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        13495
+       ],
+       "note": "Also needs a decorative helm, armour and shield"
+      },
+      {
+       "id": "cw_armour_3",
+       "name": "Castle Wars armour 3",
+       "level": 28,
+       "xp": 165,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        13496
+       ],
+       "note": "Also needs a decorative helm, armour and shield"
+      },
+      {
+       "id": "mithril_armour",
+       "name": "Mithril armour",
+       "level": 28,
+       "xp": 135,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        13491
+       ],
+       "note": "Also needs a mithril full helm, platebody and plateskirt. Not trimmed"
+      },
+      {
+       "id": "adamantite_armour",
+       "name": "Adamantite armour",
+       "level": 28,
+       "xp": 150,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        13492
+       ],
+       "note": "Also needs an adamant full helm, platebody and plateskirt. Not trimmed"
+      },
+      {
+       "id": "runite_armour",
+       "name": "Runite armour",
+       "level": 28,
+       "xp": 165,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        13493
+       ],
+       "note": "Also needs a rune full helm, platebody and plateskirt. Not trimmed"
+      }
+     ]
+    },
+    {
+     "id": "armour_2",
+     "name": "Armour space 2",
+     "objectIds": [
+      15385
+     ],
+     "options": [
+      {
+       "id": "cw_armour_1",
+       "name": "Castle Wars armour 1",
+       "level": 28,
+       "xp": 135,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        13494
+       ],
+       "note": "Also needs a decorative helm, armour and shield"
+      },
+      {
+       "id": "cw_armour_2",
+       "name": "Castle Wars armour 2",
+       "level": 28,
+       "xp": 150,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        13495
+       ],
+       "note": "Also needs a decorative helm, armour and shield"
+      },
+      {
+       "id": "cw_armour_3",
+       "name": "Castle Wars armour 3",
+       "level": 28,
+       "xp": 165,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        13496
+       ],
+       "note": "Also needs a decorative helm, armour and shield"
+      },
+      {
+       "id": "mithril_armour",
+       "name": "Mithril armour",
+       "level": 28,
+       "xp": 135,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        13491
+       ],
+       "note": "Also needs a mithril full helm, platebody and plateskirt. Not trimmed"
+      },
+      {
+       "id": "adamantite_armour",
+       "name": "Adamantite armour",
+       "level": 28,
+       "xp": 150,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        13492
+       ],
+       "note": "Also needs an adamant full helm, platebody and plateskirt. Not trimmed"
+      },
+      {
+       "id": "runite_armour",
+       "name": "Runite armour",
+       "level": 28,
+       "xp": 165,
+       "materials": [
+        {
+         "itemId": 8778,
+         "quantity": 2
+        }
+       ],
+       "objectIds": [
+        13493
+       ],
+       "note": "Also needs a rune full helm, platebody and plateskirt. Not trimmed"
+      }
+     ]
+    },
+    {
+     "id": "rune_case",
+     "name": "Rune case space",
+     "objectIds": [
+      15386
+     ],
+     "options": [
+      {
+       "id": "rune_case_1",
+       "name": "Rune case 1",
+       "level": 41,
+       "xp": 190,
+       "materials": [
+        {
+         "itemId": 8780,
+         "quantity": 2
+        },
+        {
+         "itemId": 1775,
+         "quantity": 2
+        }
+       ],
+       "note": "Also needs an air, earth, fire and water rune"
+      },
+      {
+       "id": "rune_case_2",
+       "name": "Rune case 2",
+       "level": 41,
+       "xp": 212,
+       "materials": [
+        {
+         "itemId": 8780,
+         "quantity": 2
+        },
+        {
+         "itemId": 1775,
+         "quantity": 2
+        }
+       ],
+       "note": "Also needs a body, chaos, cosmic and nature rune"
+      },
+      {
+       "id": "rune_case_3",
+       "name": "Rune case 3",
+       "level": 41,
+       "xp": 247,
+       "materials": [
+        {
+         "itemId": 8780,
+         "quantity": 2
+        },
+        {
+         "itemId": 1775,
+         "quantity": 2
+        }
+       ],
+       "note": "Also needs a blood, death, law and soul rune"
+      }
+     ]
+    }
+   ],
+   "note": "Also called the skill hall. A staircase here links floors, and can lead down to a dungeon stairs room"
+  }
+ ],
+ "items": [
+  {
+   "itemId": 960,
+   "name": "Plank",
+   "sources": [
+    "Sawmill operator (Varrock, Woodcutting Guild, Prifddinas, Port Khazard, Farming Guild) - 100 coins per regular log",
+    "Razmire Builders Merchants, Mort'ton",
+    "Plank Make spell (86 Magic)"
+   ]
+  },
+  {
+   "itemId": 8778,
+   "name": "Oak plank",
+   "sources": [
+    "Sawmill operator (Varrock, Woodcutting Guild, Prifddinas, Port Khazard, Farming Guild) - 250 coins per oak log",
+    "Plank Make spell (86 Magic)"
+   ]
+  },
+  {
+   "itemId": 8780,
+   "name": "Teak plank",
+   "sources": [
+    "Sawmill operator (Varrock, Woodcutting Guild, Prifddinas, Port Khazard, Farming Guild) - 500 coins per teak log",
+    "Plank Make spell (86 Magic)"
+   ]
+  },
+  {
+   "itemId": 8782,
+   "name": "Mahogany plank",
+   "sources": [
+    "Sawmill operator (Varrock, Woodcutting Guild, Prifddinas, Port Khazard, Farming Guild) - 1,500 coins per mahogany log",
+    "Plank Make spell (86 Magic)"
+   ]
+  },
+  {
+   "itemId": 1539,
+   "name": "Steel nails",
+   "sources": [
+    "Construction Supplies shop (sawmill operator NE of Varrock, or the Woodcutting Guild)",
+    "Smith them: 1 steel bar makes 15 nails (34 Smithing)",
+    "Any nail type works. Better nails bend less often, so you need fewer spares"
+   ]
+  },
+  {
+   "itemId": 8790,
+   "name": "Bolt of cloth",
+   "sources": [
+    "Construction Supplies shop (sawmill operator NE of Varrock, or the Woodcutting Guild)"
+   ]
+  },
+  {
+   "itemId": 1761,
+   "name": "Soft clay",
+   "sources": [
+    "Use a bucket or jug of water on clay",
+    "Humidify spell (68 Magic) on clay",
+    "Mine clay while wearing a bracelet of clay",
+    "Soft clay packs from Prospector Percy at the Motherlode Mine, 10 nuggets for 100"
+   ]
+  },
+  {
+   "itemId": 3420,
+   "name": "Limestone brick",
+   "sources": [
+    "Chisel limestone (12 Crafting). Limestone is mined at the Paterdomus quarry",
+    "Razmire Builders Merchants, Mort'ton",
+    "Keldagrim Stonemason, or Stonecutter Supplies at the Stonecutter Outpost"
+   ]
+  },
+  {
+   "itemId": 8786,
+   "name": "Marble block",
+   "sources": [
+    "Keldagrim Stonemason, or Stonecutter Supplies at the Stonecutter Outpost"
+   ]
+  },
+  {
+   "itemId": 8784,
+   "name": "Gold leaf",
+   "sources": [
+    "Keldagrim Stonemason, or Stonecutter Supplies at the Stonecutter Outpost"
+   ]
+  },
+  {
+   "itemId": 8788,
+   "name": "Magic stone",
+   "sources": [
+    "Keldagrim Stonemason, or Stonecutter Supplies at the Stonecutter Outpost"
+   ]
+  },
+  {
+   "itemId": 26266,
+   "name": "Condensed gold",
+   "sources": [
+    "Keldagrim Stonemason, or Stonecutter Supplies at the Stonecutter Outpost"
+   ]
+  },
+  {
+   "itemId": 1775,
+   "name": "Molten glass",
+   "sources": [
+    "Use a bucket of sand and soda ash on a furnace (1 Crafting)",
+    "Superglass Make spell (77 Magic)"
+   ]
+  },
+  {
+   "itemId": 2353,
+   "name": "Steel bar",
+   "sources": [
+    "Smelt 1 iron ore and 2 coal (30 Smithing)",
+    "Blast Furnace, which halves the coal needed"
+   ]
+  },
+  {
+   "itemId": 2351,
+   "name": "Iron bar",
+   "sources": [
+    "Smelt iron ore (15 Smithing)"
+   ]
+  },
+  {
+   "itemId": 1737,
+   "name": "Wool",
+   "sources": [
+    "Shear a sheep, e.g. at Fred's farm north of Lumbridge"
+   ]
+  },
+  {
+   "itemId": 13204,
+   "name": "Platinum token",
+   "sources": [
+    "Exchange 1,000,000 coins at a bank"
+   ]
+  },
+  {
+   "itemId": 7738,
+   "name": "Tea leaves",
+   "sources": [
+    "Any larder in your kitchen"
+   ]
+  },
+  {
+   "itemId": 8431,
+   "name": "Bagged plant 1",
+   "sources": [
+    "Garden supplier stalls, or the Grand Exchange"
+   ]
+  },
+  {
+   "itemId": 8433,
+   "name": "Bagged plant 2",
+   "sources": [
+    "Garden supplier stalls, or the Grand Exchange"
+   ]
+  },
+  {
+   "itemId": 8435,
+   "name": "Bagged plant 3",
+   "sources": [
+    "Garden supplier stalls, or the Grand Exchange"
+   ]
+  },
+  {
+   "itemId": 8417,
+   "name": "Bagged dead tree",
+   "sources": [
+    "Garden supplier stalls, or the Grand Exchange"
+   ]
+  },
+  {
+   "itemId": 8419,
+   "name": "Bagged nice tree",
+   "sources": [
+    "Garden supplier stalls, or the Grand Exchange"
+   ]
+  },
+  {
+   "itemId": 8421,
+   "name": "Bagged oak tree",
+   "sources": [
+    "Garden supplier stalls, or the Grand Exchange"
+   ]
+  },
+  {
+   "itemId": 8423,
+   "name": "Bagged willow tree",
+   "sources": [
+    "Garden supplier stalls, or the Grand Exchange"
+   ]
+  },
+  {
+   "itemId": 8425,
+   "name": "Bagged maple tree",
+   "sources": [
+    "Garden supplier stalls, or the Grand Exchange"
+   ]
+  },
+  {
+   "itemId": 8427,
+   "name": "Bagged yew tree",
+   "sources": [
+    "Garden supplier stalls, or the Grand Exchange"
+   ]
+  },
+  {
+   "itemId": 8429,
+   "name": "Bagged magic tree",
+   "sources": [
+    "Garden supplier stalls, or the Grand Exchange"
+   ]
+  }
+ ]
+}
