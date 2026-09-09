@@ -60,9 +60,11 @@ grid until it sits on top of your actual rooms, so the comparison lines up.
 
 ## Room coverage
 
-The bundled data currently covers **garden, parlour, kitchen, dining room, bedroom and hall (skill
-trophies)** — 43 hotspots, 194 buildable items and a door layout for each room. Rooms that are not in
-the data yet simply do not appear in the room picker; nothing breaks.
+**Every room in the game is now in the data**: all 26 room types across 159 hotspots and 643
+buildable items, each with its Construction level, materials, experience and door layout.
+
+The dungeon is split into three entries — corridor, junction and stairs — because they have
+different door layouts even though the game treats them as one room type.
 
 Adding a room is a data change, not a code change. See below.
 
@@ -122,10 +124,17 @@ when a new scene loads, so nothing walks the scene per tick or per frame.
 
 ## Known gaps
 
-- Only the six rooms listed above are in the data so far.
-- A few furniture pieces have no object id yet (cat baskets, dressers, staircases). The plugin still
-  shows their hotspot and counts them in the shopping list; it just cannot tell that one is already
-  built, so it will keep listing them as outstanding.
+- Some furniture has no object id yet (cat baskets, dressers, staircases, and much of the league
+  hall). The plugin still shows those hotspots and counts them in the shopping list; it just cannot
+  tell that one is already built, so it keeps listing them as outstanding.
+- A dungeon corridor and a dungeon junction are fitted out identically, so house detection cannot
+  tell them apart. They are separate entries in the planner because their door layouts differ.
+- Requirements that are not ordinary materials — quest items, bulk runes, signets, potions and the
+  like — are written in each item's note rather than counted on the shopping list. Things bought
+  outright for coins, such as dungeon guards and traps, are counted.
+- Which floor a room is on is worked out from what is standing there — a garden can only be
+  outdoors, an oubliette can only be in the basement — rather than assumed from the scene plane,
+  because the plane a floor sits on is not fixed.
 - Rooms are matched to grid squares by scene chunk. That is stable for your own house; imported plans
   may need **Line up with my house** once.
 - Door sides are taken to be in the same orientation the game's room template uses. That is the

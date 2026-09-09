@@ -19,6 +19,11 @@ public class FurnitureDef
 	private int level;
 	/** Construction experience granted. */
 	private double xp;
+	/**
+	 * Coins this costs on top of any materials. Dungeon guards, traps and oubliette floors are
+	 * bought outright rather than built from items.
+	 */
+	private int coins;
 	private List<Material> materials;
 	/** Object ids this furniture takes in the scene once built, used for detection. */
 	private List<Integer> objectIds;
@@ -53,6 +58,11 @@ public class FurnitureDef
 	public double getXp()
 	{
 		return xp;
+	}
+
+	public int getCoins()
+	{
+		return coins;
 	}
 
 	public String getNote()

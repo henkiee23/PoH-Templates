@@ -133,11 +133,16 @@ public class BuildStep
 	}
 
 	/**
-	 * @return the coin cost of this step; only rooms cost coins
+	 * @return the coins this step costs: the estate agent's fee for a room, or the price of a
+	 * furnishing that is bought outright rather than built from materials
 	 */
 	public int getCoinCost()
 	{
-		return type == Type.ADD_ROOM || type == Type.REPLACE_ROOM ? room.getCost() : 0;
+		if (type == Type.ADD_ROOM || type == Type.REPLACE_ROOM)
+		{
+			return room.getCost();
+		}
+		return furniture == null ? 0 : furniture.getCoins();
 	}
 
 	public String describe()

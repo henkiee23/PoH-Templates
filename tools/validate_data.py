@@ -72,6 +72,10 @@ def main():
                     errors.append("%s has level %s" % (option["id"], option["level"]))
                 if option["xp"] < 0:
                     errors.append("%s has negative xp" % option["id"])
+                if option.get("coins", 0) < 0:
+                    errors.append("%s has a negative coin cost" % option["id"])
+                if not option.get("materials") and not option.get("coins") and not option.get("note"):
+                    warnings.append("%s costs nothing and explains nothing" % option["id"])
                 if option["level"] < previous_level:
                     warnings.append("%s: %s (level %d) is listed after level %d"
                                     % (key, option["id"], option["level"], previous_level))
