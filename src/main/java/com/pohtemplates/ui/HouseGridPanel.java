@@ -5,6 +5,7 @@
  */
 package com.pohtemplates.ui;
 
+import com.pohtemplates.data.Direction;
 import com.pohtemplates.data.PohData;
 import com.pohtemplates.data.RoomDef;
 import com.pohtemplates.model.HouseTemplate;
@@ -134,9 +135,42 @@ class HouseGridPanel extends JPanel
 		{
 			return "Empty (" + cell.x + ", " + cell.y + ")";
 		}
+
 		RoomDef def = data.getRoom(room.getRoom());
-		String name = def == null ? room.getRoom() : def.getName();
-		return name + " facing " + facing(room.getRotation());
+		if (def == null)
+		{
+			return room.getRoom();
+		}
+
+		StringBuilder tip = new StringBuilder("<html>")
+			.append(def.getName())
+			.append(", facing ")
+			.append(facing(room.getRotation()));
+
+		for (Direction door : def.getDoors(room.getRotation()))
+		{
+			tip.append("<br>Door ")
+				.append(door.name().toLowerCase())
+				.append(": ")
+				.append(describe(doorState(room, door)));
+		}
+
+		return tip.append("</html>").toString();
+	}
+
+	private static String describe(DoorState state)
+	{
+		switch (state)
+		{
+			case CONNECTED:
+				return "joined to the room next door";
+			case BLOCKED:
+				return "blocked, the room next door has a wall here";
+			case EDGE:
+				return "faces off the edge of the grid";
+			default:
+				return "open, you can build here";
+		}
 	}
 
 	private static String facing(int rotation)
@@ -164,6 +198,8 @@ class HouseGridPanel extends JPanel
 			graphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 			graphics.setFont(getFont().deriveFont(Font.BOLD, 9f));
 
+			// Two passes. Doors sit on the cell edges, so everything that could paint over them —
+			// the cell fills and the grid lines — has to go down first.
 			for (int x = 0; x < GRID; x++)
 			{
 				for (int y = 0; y < GRID; y++)
@@ -177,13 +213,21 @@ class HouseGridPanel extends JPanel
 					graphics.setColor(def == null ? EMPTY_CELL : def.toAwtColour());
 					graphics.fillRect(px, py, CELL, CELL);
 
-					if (def != null)
-					{
-						drawRoom(graphics, px, py, def, room);
-					}
-
 					graphics.setColor(GRID_LINE);
 					graphics.drawRect(px, py, CELL, CELL);
+				}
+			}
+
+			for (int x = 0; x < GRID; x++)
+			{
+				for (int y = 0; y < GRID; y++)
+				{
+					PlannedRoom room = template == null ? null : template.getRoomAt(plane, x, y);
+					RoomDef def = room == null ? null : data.getRoom(room.getRoom());
+					if (def != null)
+					{
+						drawRoom(graphics, x * CELL, (GRID - 1 - y) * CELL, def, room);
+					}
 				}
 			}
 
@@ -202,37 +246,107 @@ class HouseGridPanel extends JPanel
 		}
 	}
 
-	private void drawRoom(Graphics2D graphics, int px, int py, RoomDef def, PlannedRoom room)
+	/**
+	 * How a door on one side of a room relates to whatever is on the other side of that wall.
+	 */
+	private enum DoorState
 	{
-		// A tick on the side the room faces, so rotation is visible at a glance.
-		graphics.setColor(Color.WHITE);
-		switch (((room.getRotation() % 4) + 4) % 4)
+		/** The neighbouring square has a room whose door lines up: the two are joined. */
+		CONNECTED(new Color(0x5A, 0xD6, 0x6B)),
+		/** The neighbouring square is empty, so this door is somewhere you can still build. */
+		OPEN(new Color(0xD8, 0xD8, 0xD8)),
+		/** There is a room next door, but its wall is solid on this side. */
+		BLOCKED(new Color(0xE0, 0x52, 0x52)),
+		/** The door faces off the edge of the house grid. */
+		EDGE(new Color(0x70, 0x70, 0x70));
+
+		private final Color colour;
+
+		DoorState(Color colour)
 		{
-			case 1:
-				graphics.fillRect(px + CELL - 3, py + 6, 2, 4);
-				break;
-			case 2:
-				graphics.fillRect(px + 6, py + CELL - 3, 4, 2);
-				break;
-			case 3:
-				graphics.fillRect(px + 1, py + 6, 2, 4);
-				break;
-			default:
-				graphics.fillRect(px + 6, py + 1, 4, 2);
-				break;
+			this.colour = colour;
 		}
 
+		Color getColour()
+		{
+			return colour;
+		}
+	}
+
+	private void drawRoom(Graphics2D graphics, int px, int py, RoomDef def, PlannedRoom room)
+	{
 		String initial = def.getName().substring(0, 1).toUpperCase();
 		graphics.setColor(Color.WHITE);
 		int textX = px + (CELL - graphics.getFontMetrics().stringWidth(initial)) / 2;
 		int textY = py + CELL / 2 + 4;
 		graphics.drawString(initial, textX, textY);
 
+		// Doors sit on the cell edges, coloured by whether they actually join to anything. This is
+		// also what shows the room's rotation, for every room whose doors are not symmetrical.
+		for (Direction door : def.getDoors(room.getRotation()))
+		{
+			graphics.setColor(doorState(room, door).getColour());
+			drawDoor(graphics, px, py, door);
+		}
+
 		if (unreachable.contains(room))
 		{
 			graphics.setColor(WARNING);
 			graphics.setStroke(new BasicStroke(1.5f));
-			graphics.drawLine(px + 2, py + 2, px + CELL - 2, py + CELL - 2);
+			graphics.drawLine(px + 3, py + 3, px + CELL - 3, py + CELL - 3);
 		}
+	}
+
+	private static void drawDoor(Graphics2D graphics, int px, int py, Direction door)
+	{
+		final int span = 6;
+		final int thickness = 2;
+		final int offset = (CELL - span) / 2;
+
+		switch (door)
+		{
+			case NORTH:
+				graphics.fillRect(px + offset, py, span, thickness);
+				break;
+			case SOUTH:
+				graphics.fillRect(px + offset, py + CELL - thickness, span, thickness);
+				break;
+			case EAST:
+				graphics.fillRect(px + CELL - thickness, py + offset, thickness, span);
+				break;
+			default:
+				graphics.fillRect(px, py + offset, thickness, span);
+				break;
+		}
+	}
+
+	/**
+	 * @param door a door side that has already been rotated into grid space
+	 */
+	private DoorState doorState(PlannedRoom room, Direction door)
+	{
+		int nx = room.getX() + door.getDx();
+		int ny = room.getY() + door.getDy();
+
+		if (!HouseTemplate.inBounds(nx, ny))
+		{
+			return DoorState.EDGE;
+		}
+
+		PlannedRoom neighbour = template.getRoomAt(room.getPlane(), nx, ny);
+		if (neighbour == null)
+		{
+			return DoorState.OPEN;
+		}
+
+		RoomDef neighbourDef = data.getRoom(neighbour.getRoom());
+		if (neighbourDef == null)
+		{
+			return DoorState.OPEN;
+		}
+
+		return neighbourDef.getDoors(neighbour.getRotation()).contains(door.opposite())
+			? DoorState.CONNECTED
+			: DoorState.BLOCKED;
 	}
 }

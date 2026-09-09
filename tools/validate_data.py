@@ -20,6 +20,7 @@ def main():
     errors, warnings = [], []
 
     item_ids = {i["itemId"] for i in data["items"]}
+    valid_doors = {"NORTH", "EAST", "SOUTH", "WEST"}
     hotspot_objects, furniture_objects = {}, {}
     room_ids = set()
 
@@ -34,6 +35,17 @@ def main():
             errors.append("%s has no planes" % room["id"])
         if not room["hotspots"]:
             errors.append("%s has no hotspots" % room["id"])
+
+        doors = room.get("doors")
+        if not doors:
+            warnings.append("%s has no door layout, so it cannot be checked for connectivity"
+                            % room["id"])
+        else:
+            for door in doors:
+                if door not in valid_doors:
+                    errors.append("%s has an unknown door side %r" % (room["id"], door))
+            if len(set(doors)) != len(doors):
+                errors.append("%s lists the same door side twice" % room["id"])
 
         hotspot_ids = set()
         for hotspot in room["hotspots"]:

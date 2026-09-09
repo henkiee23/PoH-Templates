@@ -598,6 +598,12 @@
      ]
     }
    ],
+   "doors": [
+    "NORTH",
+    "EAST",
+    "SOUTH",
+    "WEST"
+   ],
    "note": "Every house needs at least one garden or formal garden, for the exit portal"
   },
   {
@@ -1244,6 +1250,11 @@
       }
      ]
     }
+   ],
+   "doors": [
+    "EAST",
+    "SOUTH",
+    "WEST"
    ]
   },
   {
@@ -1964,6 +1975,10 @@
      ]
     }
    ],
+   "doors": [
+    "EAST",
+    "SOUTH"
+   ],
    "note": "Two non-parallel door spaces, which makes it a good corner room"
   },
   {
@@ -2670,6 +2685,11 @@
      ]
     }
    ],
+   "doors": [
+    "EAST",
+    "SOUTH",
+    "WEST"
+   ],
    "note": "A servant serves food here. The bell-pull summons your servant instantly"
   },
   {
@@ -3360,6 +3380,10 @@
      ]
     }
    ],
+   "doors": [
+    "EAST",
+    "SOUTH"
+   ],
    "note": "Two bedrooms with beds are needed before you can hire a servant. Two non-parallel doors, so a good corner room"
   },
   {
@@ -3877,6 +3901,12 @@
       }
      ]
     }
+   ],
+   "doors": [
+    "NORTH",
+    "EAST",
+    "SOUTH",
+    "WEST"
    ],
    "note": "Also called the skill hall. A staircase here links floors, and can lead down to a dungeon stairs room"
   }

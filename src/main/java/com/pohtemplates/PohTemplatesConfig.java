@@ -96,7 +96,7 @@ public interface PohTemplatesConfig extends Config
 	}
 
 	@Range(min = 1, max = 30)
-	@Units(Units.TILES)
+	@Units(" tiles")
 	@ConfigItem(
 		keyName = "guidanceRange",
 		name = "Highlight range",

@@ -169,4 +169,62 @@ public class PohDataTest
 			assertEquals(direction.opposite(), direction.rotate(2));
 		}
 	}
+
+	@Test
+	public void rotationTurnsClockwise()
+	{
+		// Must match the game: instance chunk rotation 1 maps the north side onto the east side.
+		// See WorldPoint#rotate in the RuneLite API.
+		assertEquals(Direction.EAST, Direction.NORTH.rotate(1));
+		assertEquals(Direction.SOUTH, Direction.EAST.rotate(1));
+		assertEquals(Direction.WEST, Direction.SOUTH.rotate(1));
+		assertEquals(Direction.NORTH, Direction.WEST.rotate(1));
+	}
+
+	@Test
+	public void everyRoomHasADoorLayout()
+	{
+		for (RoomDef room : data.getRooms())
+		{
+			assertFalse("room " + room.getId() + " has no doors", room.getDoors().isEmpty());
+			assertEquals("room " + room.getId() + " lists a door side twice",
+				room.getDoors().size(), new HashSet<>(room.getDoors()).size());
+		}
+	}
+
+	@Test
+	public void turningARoomTurnsItsDoors()
+	{
+		RoomDef kitchen = data.getRoom("kitchen");
+		assertNotNull(kitchen);
+
+		// The kitchen's two doors are on the east and south walls, which is what makes it a corner
+		// room. Turned a quarter clockwise they must land on the south and west walls.
+		Set<Direction> unrotated = kitchen.getDoors(0);
+		assertTrue(unrotated.contains(Direction.EAST));
+		assertTrue(unrotated.contains(Direction.SOUTH));
+		assertEquals(2, unrotated.size());
+
+		Set<Direction> turned = kitchen.getDoors(1);
+		assertTrue(turned.contains(Direction.SOUTH));
+		assertTrue(turned.contains(Direction.WEST));
+		assertEquals(2, turned.size());
+
+		assertEquals(unrotated, kitchen.getDoors(4));
+	}
+
+	@Test
+	public void doorsFacingEachOtherConnect()
+	{
+		RoomDef kitchen = data.getRoom("kitchen");
+		RoomDef garden = data.getRoom("garden");
+		assertNotNull(kitchen);
+		assertNotNull(garden);
+
+		// A garden has doors on all four walls, so it joins an unturned kitchen's east door.
+		assertTrue(garden.getDoors(0).contains(Direction.EAST.opposite()));
+
+		// The kitchen has no north wall door, so nothing can ever join it from the north.
+		assertFalse(kitchen.getDoors(0).contains(Direction.NORTH));
+	}
 }

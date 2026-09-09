@@ -548,7 +548,7 @@ GROUND_AND_UP = [1, 2]
 
 ROOMS = [
     dict(
-        id="garden", name="Garden", level=1, cost=1000, planes=[1], colour="#4C7A3F",
+        id="garden", name="Garden", level=1, cost=1000, planes=[1], colour="#4C7A3F", doors=["NORTH", "EAST", "SOUTH", "WEST"],
         note="Every house needs at least one garden or formal garden, for the exit portal",
         hotspots=[
             dict(id="centrepiece", name="Centrepiece space", objects=[15361], family="garden_centrepiece"),
@@ -562,7 +562,7 @@ ROOMS = [
         ],
     ),
     dict(
-        id="parlour", name="Parlour", level=1, cost=1000, planes=GROUND_AND_UP, colour="#8B6F47",
+        id="parlour", name="Parlour", level=1, cost=1000, planes=GROUND_AND_UP, colour="#8B6F47", doors=["EAST", "SOUTH", "WEST"],
         hotspots=[
             dict(id="chair_1", name="Chair space 1", objects=[4515], family="parlour_chair"),
             dict(id="chair_2", name="Chair space 2", objects=[4516], family="parlour_chair"),
@@ -574,7 +574,7 @@ ROOMS = [
         ],
     ),
     dict(
-        id="kitchen", name="Kitchen", level=5, cost=5000, planes=GROUND_AND_UP, colour="#B07A3C",
+        id="kitchen", name="Kitchen", level=5, cost=5000, planes=GROUND_AND_UP, colour="#B07A3C", doors=["EAST", "SOUTH"],
         note="Two non-parallel door spaces, which makes it a good corner room",
         hotspots=[
             dict(id="stove", name="Stove space", objects=[15398], family="kitchen_stove"),
@@ -588,7 +588,7 @@ ROOMS = [
         ],
     ),
     dict(
-        id="dining_room", name="Dining room", level=10, cost=5000, planes=GROUND_AND_UP, colour="#9C5B3C",
+        id="dining_room", name="Dining room", level=10, cost=5000, planes=GROUND_AND_UP, colour="#9C5B3C", doors=["EAST", "SOUTH", "WEST"],
         note="A servant serves food here. The bell-pull summons your servant instantly",
         hotspots=[
             dict(id="table", name="Table space", objects=[15298], family="dining_table"),
@@ -601,7 +601,7 @@ ROOMS = [
         ],
     ),
     dict(
-        id="bedroom", name="Bedroom", level=20, cost=10000, planes=GROUND_AND_UP, colour="#6B5B95",
+        id="bedroom", name="Bedroom", level=20, cost=10000, planes=GROUND_AND_UP, colour="#6B5B95", doors=["EAST", "SOUTH"],
         note="Two bedrooms with beds are needed before you can hire a servant. Two non-parallel doors, so a good corner room",
         hotspots=[
             dict(id="bed", name="Bed space", objects=[15260], family="bedroom_bed"),
@@ -615,7 +615,7 @@ ROOMS = [
     ),
     dict(
         id="skill_hall", name="Hall (skill trophies)", level=25, cost=15000, planes=GROUND_AND_UP,
-        colour="#3E6B8A",
+        colour="#3E6B8A", doors=["NORTH", "EAST", "SOUTH", "WEST"],
         note="Also called the skill hall. A staircase here links floors, and can lead down to a dungeon stairs room",
         hotspots=[
             dict(id="stairs", name="Stair space", objects=[15377, 15378, 15379, 15380, 15381],

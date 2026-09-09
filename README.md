@@ -14,6 +14,12 @@ Plans are shared as text codes, so you can hand one to a friend or paste one int
 **Plan the layout.** A 13x13 grid per floor (dungeon, ground, first floor). Click a square, pick a
 room and which way it faces, then choose what goes in each of its hotspots.
 
+Each room shows its doors on the edges of its square, coloured by what is on the other side:
+**green** where two rooms' doors line up and the pair is joined, **grey** where the door faces an
+empty square you could still build on, and **red** where the neighbouring room has a solid wall
+there. A room that joins nothing gets a red cross. Because doors turn with the room, they also show
+you which way it is facing. Hovering a square spells all of this out.
+
 **See what is left.** Stand in your house and the plugin compares it against your plan: which rooms
 are missing, which are turned the wrong way, and which hotspots are empty or hold the wrong thing.
 The list is ordered so you can work down it.
@@ -55,8 +61,8 @@ grid until it sits on top of your actual rooms, so the comparison lines up.
 ## Room coverage
 
 The bundled data currently covers **garden, parlour, kitchen, dining room, bedroom and hall (skill
-trophies)** — 43 hotspots and 194 buildable items. Rooms that are not in the data yet simply do not
-appear in the room picker; nothing breaks.
+trophies)** — 43 hotspots, 194 buildable items and a door layout for each room. Rooms that are not in
+the data yet simply do not appear in the room picker; nothing breaks.
 
 Adding a room is a data change, not a code change. See below.
 
@@ -69,6 +75,9 @@ sources feed it, and they are deliberately kept apart:
   constants. These identify empty hotspots and built furniture in the scene, and are what house
   detection relies on.
 - **Construction levels, materials and experience** come from the [OSRS Wiki](https://oldschool.runescape.wiki/w/Construction).
+- **Door layouts** come from the `doors` parameter of each room page's `Infobox Room` template
+  (fetch a page with `?action=raw` to see it), which gives them as a compact `nesw` string rather
+  than only as the rendered image.
 
 Within a hotspot the cache numbers furniture in the same order the wiki lists it by level
 (`POH_CHAIR1` … `POH_CHAIR7` are the seven parlour chairs in level order), which is what makes the
@@ -77,8 +86,8 @@ two sides checkable against each other.
 To add a room:
 
 1. Add its furniture to `FURNITURE` in `tools/build_data.py`, one entry per buildable option.
-2. Add the room to `ROOMS`, with each hotspot's empty-hotspot object ids and the furniture family it
-   uses.
+2. Add the room to `ROOMS`, with its `doors`, each hotspot's empty-hotspot object ids, and the
+   furniture family each hotspot uses.
 3. `python3 tools/build_data.py` to regenerate, then `python3 tools/validate_data.py` to check it.
 
 The validator refuses ids that mean two different hotspots in one room, object ids that are listed as
@@ -114,13 +123,14 @@ when a new scene loads, so nothing walks the scene per tick or per frame.
 ## Known gaps
 
 - Only the six rooms listed above are in the data so far.
-- Door layouts are not in the data yet, so the "this room connects to nothing" warning never fires.
-  The schema has the field; the per-room door sides still need to be filled in.
 - A few furniture pieces have no object id yet (cat baskets, dressers, staircases). The plugin still
   shows their hotspot and counts them in the shopping list; it just cannot tell that one is already
   built, so it will keep listing them as outstanding.
 - Rooms are matched to grid squares by scene chunk. That is stable for your own house; imported plans
   may need **Line up with my house** once.
+- Door sides are taken to be in the same orientation the game's room template uses. That is the
+  assumption the wiki's own door-layout diagrams are drawn in, but it has not been checked against a
+  real house yet — if doors appear on the wrong walls after capturing your house, that is why.
 
 ## Licence
 

@@ -169,7 +169,11 @@ public class PohTemplatesPanel extends PluginPanel
 		top.add(gridHolder, BorderLayout.CENTER);
 
 		JLabel hint = new JLabel("<html><body style='width:195px'>"
-			+ "Click a square to place a room. North is up.</body></html>");
+			+ "Click a square to place a room. North is up.<br>"
+			+ "Doors: <font color='#5AD66B'>joined</font>"
+			+ " &middot; <font color='#D8D8D8'>open</font>"
+			+ " &middot; <font color='#E05252'>blocked</font>"
+			+ "</body></html>");
 		hint.setFont(FontManager.getRunescapeSmallFont());
 		hint.setForeground(ColorScheme.LIGHT_GRAY_COLOR);
 
