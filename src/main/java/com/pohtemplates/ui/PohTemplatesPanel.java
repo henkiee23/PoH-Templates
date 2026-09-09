@@ -18,6 +18,7 @@ import com.pohtemplates.share.ShareCodec;
 import com.pohtemplates.store.TemplateStore;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.Insets;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.util.List;
@@ -56,10 +57,16 @@ public class PohTemplatesPanel extends PluginPanel
 	private final ShareCodec shareCodec;
 	private final PohTemplatesConfig config;
 
-	private final JComboBox<ComboItem<HouseTemplate>> templateCombo = new JComboBox<>();
-	private final JComboBox<HouseFloor> floorCombo = new JComboBox<>(HouseFloor.values());
-	private final JPanel tabDisplay = new JPanel(new BorderLayout());
-	private final PluginErrorPanel errorPanel = new PluginErrorPanel();
+	// Nothing Swing may be built here, or in the constructor. The client loads plugins before it
+	// installs its look and feel (ClientUI.init calls RuneLiteLAF.setup, and that runs after
+	// PluginManager.loadCorePlugins), and a Swing component takes its look from whatever is
+	// installed at the moment it is constructed. A widget created here would keep the platform
+	// default look for the rest of the session. Everything below is created in init() instead,
+	// which runs from the plugin's startUp, well after the look and feel is in place.
+	private JComboBox<ComboItem<HouseTemplate>> templateCombo;
+	private JComboBox<HouseFloor> floorCombo;
+	private JPanel tabDisplay;
+	private PluginErrorPanel errorPanel;
 
 	private HouseGridPanel grid;
 	private RoomEditorPanel roomEditor;
@@ -85,6 +92,11 @@ public class PohTemplatesPanel extends PluginPanel
 	public void init(PohTemplatesPlugin plugin)
 	{
 		this.plugin = plugin;
+
+		templateCombo = PanelUtil.comboBox();
+		floorCombo = PanelUtil.comboBox();
+		tabDisplay = new JPanel(new BorderLayout());
+		errorPanel = new PluginErrorPanel();
 
 		PohData data = dataService.get();
 
@@ -117,6 +129,8 @@ public class PohTemplatesPanel extends PluginPanel
 
 		add(tabs);
 		add(tabDisplay);
+
+		PanelUtil.styleScrollBar(getScrollPane());
 	}
 
 	private JPanel buildHeader()
@@ -124,10 +138,11 @@ public class PohTemplatesPanel extends PluginPanel
 		JPanel header = new JPanel(new BorderLayout(0, 4));
 		header.setBackground(ColorScheme.DARK_GRAY_COLOR);
 
-		templateCombo.setFocusable(false);
 		templateCombo.addActionListener(e -> onTemplateSelected());
 
-		JPanel buttons = new JPanel(new GridLayout(3, 2, 3, 3));
+		// Two rows of three rather than three of two: the panel is tall enough already, and every
+		// row saved is a row the sidebar does not have to scroll.
+		JPanel buttons = new JPanel(new GridLayout(2, 3, 3, 3));
 		buttons.setBackground(ColorScheme.DARK_GRAY_COLOR);
 		buttons.add(button("New", "Start an empty plan", e -> newPlan()));
 		buttons.add(button("Capture", "Copy the house you are standing in into a new plan", e -> capture()));
@@ -147,7 +162,10 @@ public class PohTemplatesPanel extends PluginPanel
 		layout.setLayout(new BorderLayout(0, 4));
 		layout.setBackground(ColorScheme.DARK_GRAY_COLOR);
 
-		floorCombo.setFocusable(false);
+		for (HouseFloor floor : HouseFloor.values())
+		{
+			floorCombo.addItem(floor);
+		}
 		floorCombo.setSelectedItem(HouseFloor.GROUND);
 		floorCombo.addActionListener(e ->
 		{
@@ -163,9 +181,11 @@ public class PohTemplatesPanel extends PluginPanel
 		top.setBackground(ColorScheme.DARK_GRAY_COLOR);
 		top.add(floorCombo, BorderLayout.NORTH);
 
-		JPanel gridHolder = new JPanel();
+		// BorderLayout rather than the default FlowLayout, so the grid is handed the width that is
+		// actually available and can size its squares to fit it.
+		JPanel gridHolder = new JPanel(new BorderLayout());
 		gridHolder.setBackground(ColorScheme.DARK_GRAY_COLOR);
-		gridHolder.add(grid);
+		gridHolder.add(grid, BorderLayout.CENTER);
 		top.add(gridHolder, BorderLayout.CENTER);
 
 		JLabel hint = new JLabel("<html><body style='width:195px'>"
@@ -195,6 +215,9 @@ public class PohTemplatesPanel extends PluginPanel
 		JButton button = new JButton(text);
 		button.setToolTipText(tooltip);
 		button.setFocusable(false);
+		// Three buttons to a row leaves little width, so the default side padding is dropped to
+		// keep labels like "Capture" and "Rename" from being cut short.
+		button.setMargin(new Insets(2, 0, 2, 0));
 		button.addActionListener(listener);
 		return button;
 	}

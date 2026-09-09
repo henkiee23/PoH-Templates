@@ -34,7 +34,9 @@ import net.runelite.client.ui.ColorScheme;
 class HouseGridPanel extends JPanel
 {
 	private static final int GRID = HouseTemplate.GRID_SIZE;
-	private static final int CELL = 16;
+	/** Cell size the panel asks for. The grid shrinks below this rather than being clipped. */
+	private static final int PREFERRED_CELL = 15;
+	private static final int MIN_CELL = 10;
 	private static final Color GRID_LINE = new Color(60, 60, 60);
 	private static final Color EMPTY_CELL = new Color(38, 38, 38);
 	private static final Color SELECTION = new Color(255, 255, 255, 220);
@@ -54,10 +56,9 @@ class HouseGridPanel extends JPanel
 		this.onCellSelected = onCellSelected;
 
 		setBackground(ColorScheme.DARKER_GRAY_COLOR);
-		int size = GRID * CELL + 1;
-		setPreferredSize(new Dimension(size, size));
-		setMinimumSize(new Dimension(size, size));
-		setMaximumSize(new Dimension(size, size));
+		setPreferredSize(square(PREFERRED_CELL));
+		setMinimumSize(square(MIN_CELL));
+		setMaximumSize(square(PREFERRED_CELL));
 		ToolTipManager.sharedInstance().registerComponent(this);
 
 		addMouseListener(new MouseAdapter()
@@ -113,12 +114,40 @@ class HouseGridPanel extends JPanel
 		repaint();
 	}
 
+	private static Dimension square(int cell)
+	{
+		int side = GRID * cell + 1;
+		return new Dimension(side, side);
+	}
+
+	/**
+	 * The grid is drawn to fit whatever width it is given, so a scrollbar appearing beside it
+	 * shrinks the squares instead of clipping the east edge off the house.
+	 */
+	private int cellSize()
+	{
+		int available = Math.min(getWidth(), getHeight()) - 1;
+		return Math.max(MIN_CELL, Math.min(PREFERRED_CELL, available / GRID));
+	}
+
+	/** Left edge of the grid, so it stays centred when the panel is wider than the squares need. */
+	private int originX()
+	{
+		return Math.max(0, (getWidth() - (GRID * cellSize() + 1)) / 2);
+	}
+
 	@Nullable
 	private Point toCell(int px, int py)
 	{
-		int x = px / CELL;
+		int cell = cellSize();
+		int left = originX();
+		if (px < left)
+		{
+			return null;
+		}
+		int x = (px - left) / cell;
 		// Screen y grows downwards, the house grid grows north, so flip it.
-		int y = GRID - 1 - (py / CELL);
+		int y = GRID - 1 - (py / cell);
 		return HouseTemplate.inBounds(x, y) ? new Point(x, y) : null;
 	}
 
@@ -196,7 +225,9 @@ class HouseGridPanel extends JPanel
 		try
 		{
 			graphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-			graphics.setFont(getFont().deriveFont(Font.BOLD, 9f));
+			final int cell = cellSize();
+			final int ox = originX();
+			graphics.setFont(getFont().deriveFont(Font.BOLD, Math.max(8f, cell - 6f)));
 
 			// Two passes. Doors sit on the cell edges, so everything that could paint over them —
 			// the cell fills and the grid lines — has to go down first.
@@ -204,17 +235,17 @@ class HouseGridPanel extends JPanel
 			{
 				for (int y = 0; y < GRID; y++)
 				{
-					int px = x * CELL;
-					int py = (GRID - 1 - y) * CELL;
+					int px = ox + x * cell;
+					int py = (GRID - 1 - y) * cell;
 
 					PlannedRoom room = template == null ? null : template.getRoomAt(plane, x, y);
 					RoomDef def = room == null ? null : data.getRoom(room.getRoom());
 
 					graphics.setColor(def == null ? EMPTY_CELL : def.toAwtColour());
-					graphics.fillRect(px, py, CELL, CELL);
+					graphics.fillRect(px, py, cell, cell);
 
 					graphics.setColor(GRID_LINE);
-					graphics.drawRect(px, py, CELL, CELL);
+					graphics.drawRect(px, py, cell, cell);
 				}
 			}
 
@@ -226,18 +257,18 @@ class HouseGridPanel extends JPanel
 					RoomDef def = room == null ? null : data.getRoom(room.getRoom());
 					if (def != null)
 					{
-						drawRoom(graphics, x * CELL, (GRID - 1 - y) * CELL, def, room);
+						drawRoom(graphics, ox + x * cell, (GRID - 1 - y) * cell, cell, def, room);
 					}
 				}
 			}
 
 			if (selected != null)
 			{
-				int px = selected.x * CELL;
-				int py = (GRID - 1 - selected.y) * CELL;
+				int px = ox + selected.x * cell;
+				int py = (GRID - 1 - selected.y) * cell;
 				graphics.setColor(SELECTION);
 				graphics.setStroke(new BasicStroke(2f));
-				graphics.drawRect(px + 1, py + 1, CELL - 2, CELL - 2);
+				graphics.drawRect(px + 1, py + 1, cell - 2, cell - 2);
 			}
 		}
 		finally
@@ -273,12 +304,12 @@ class HouseGridPanel extends JPanel
 		}
 	}
 
-	private void drawRoom(Graphics2D graphics, int px, int py, RoomDef def, PlannedRoom room)
+	private void drawRoom(Graphics2D graphics, int px, int py, int cell, RoomDef def, PlannedRoom room)
 	{
 		String initial = def.getName().substring(0, 1).toUpperCase();
 		graphics.setColor(Color.WHITE);
-		int textX = px + (CELL - graphics.getFontMetrics().stringWidth(initial)) / 2;
-		int textY = py + CELL / 2 + 4;
+		int textX = px + (cell - graphics.getFontMetrics().stringWidth(initial)) / 2;
+		int textY = py + cell / 2 + graphics.getFontMetrics().getAscent() / 2 - 1;
 		graphics.drawString(initial, textX, textY);
 
 		// Doors sit on the cell edges, coloured by whether they actually join to anything. This is
@@ -286,22 +317,22 @@ class HouseGridPanel extends JPanel
 		for (Direction door : def.getDoors(room.getRotation()))
 		{
 			graphics.setColor(doorState(room, door).getColour());
-			drawDoor(graphics, px, py, door);
+			drawDoor(graphics, px, py, cell, door);
 		}
 
 		if (unreachable.contains(room))
 		{
 			graphics.setColor(WARNING);
 			graphics.setStroke(new BasicStroke(1.5f));
-			graphics.drawLine(px + 3, py + 3, px + CELL - 3, py + CELL - 3);
+			graphics.drawLine(px + 3, py + 3, px + cell - 3, py + cell - 3);
 		}
 	}
 
-	private static void drawDoor(Graphics2D graphics, int px, int py, Direction door)
+	private static void drawDoor(Graphics2D graphics, int px, int py, int cell, Direction door)
 	{
-		final int span = 6;
+		final int span = Math.max(4, cell / 2 - 1);
 		final int thickness = 2;
-		final int offset = (CELL - span) / 2;
+		final int offset = (cell - span) / 2;
 
 		switch (door)
 		{
@@ -309,10 +340,10 @@ class HouseGridPanel extends JPanel
 				graphics.fillRect(px + offset, py, span, thickness);
 				break;
 			case SOUTH:
-				graphics.fillRect(px + offset, py + CELL - thickness, span, thickness);
+				graphics.fillRect(px + offset, py + cell - thickness, span, thickness);
 				break;
 			case EAST:
-				graphics.fillRect(px + CELL - thickness, py + offset, thickness, span);
+				graphics.fillRect(px + cell - thickness, py + offset, thickness, span);
 				break;
 			default:
 				graphics.fillRect(px, py + offset, thickness, span);

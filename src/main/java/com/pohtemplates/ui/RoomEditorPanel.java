@@ -14,7 +14,6 @@ import com.pohtemplates.model.PlannedRoom;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +41,7 @@ class RoomEditorPanel extends JPanel
 	private final Runnable onChanged;
 
 	private final JLabel title = new JLabel();
-	private final JComboBox<ComboItem<RoomDef>> roomCombo = new JComboBox<>();
+	private final JComboBox<ComboItem<RoomDef>> roomCombo = PanelUtil.comboBox();
 	private final JButton rotateButton = new JButton();
 	private final JPanel hotspotPanel = new JPanel();
 
@@ -64,7 +63,6 @@ class RoomEditorPanel extends JPanel
 		title.setFont(FontManager.getRunescapeBoldFont());
 		title.setForeground(ColorScheme.BRAND_ORANGE);
 
-		roomCombo.setFocusable(false);
 		roomCombo.addActionListener(e -> onRoomChosen());
 
 		rotateButton.setFocusable(false);
@@ -264,9 +262,7 @@ class RoomEditorPanel extends JPanel
 		label.setForeground(ColorScheme.TEXT_COLOR);
 		row.add(label, BorderLayout.NORTH);
 
-		JComboBox<ComboItem<FurnitureDef>> combo = new JComboBox<>();
-		combo.setFocusable(false);
-		combo.setFont(combo.getFont().deriveFont(Font.PLAIN, 11f));
+		JComboBox<ComboItem<FurnitureDef>> combo = PanelUtil.comboBox();
 		combo.addItem(new ComboItem<>(null, NO_FURNITURE));
 
 		String currentId = planned.getFurniture().get(hotspot.getId());
